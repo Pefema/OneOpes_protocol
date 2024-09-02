@@ -184,16 +184,46 @@ def process_single_sdf_file(sdf_file_path, calculation_type):
         shutil.move(generated_file, os.path.join(folder_name, generated_file))
     shutil.move(sdf_file_path, os.path.join(folder_name, os.path.basename(sdf_file_path)))
 
+def pdb_to_rdkit_mol(pdb_file_path):
+    # Read PDB file and create RDKit molecule
+    mol = Chem.MolFromPDBFile(pdb_file_path, removeHs=False)
+    if mol is None:
+        raise ValueError(f"Failed to read PDB file: {pdb_file_path}")
+    return mol
+
+def convert_all_to_sdf(directory):
+    # Iterate over all files in the specified directory
+    for filename in os.listdir(directory):
+        if filename.endswith(('.cif', '.pdb')):
+            input_file_path = os.path.join(directory, filename)
+            output_sdf_path = os.path.splitext(input_file_path)[0] + '.sdf'
+            
+            if os.path.exists(output_sdf_path):
+                print(f"Skipping conversion for {input_file_path} as {output_sdf_path} already exists.")
+            else:
+                try:
+                    if filename.endswith('.cif'):
+                        mol = cif_to_rdkit_mol(input_file_path)
+                    elif filename.endswith('.pdb'):
+                        mol = pdb_to_rdkit_mol(input_file_path)
+                    
+                    save_mol_as_sdf(mol, output_sdf_path)
+                    print(f"Successfully converted {input_file_path} to {output_sdf_path}")
+                except Exception as e:
+                    print(f"Failed to convert {input_file_path}: {e}")
+
+# ... [Rest of the functions remain unchanged] ...
+
 def main():
-    parser = argparse.ArgumentParser(description="Process CIF and SDF files to prepare Gaussian inputs.")
+    parser = argparse.ArgumentParser(description="Process CIF, PDB, and SDF files to prepare Gaussian inputs.")
     parser.add_argument("--calculation_type", type=str, choices=["vacuum", "dielectric"], default="vacuum", help="Type of calculation: vacuum or dielectric (default: vacuum)")
     
     args = parser.parse_args()
     
     current_directory = os.getcwd()
     
-    # First, convert CIF files to SDF if needed
-    convert_all_cif_to_sdf(current_directory)
+    # First, convert CIF and PDB files to SDF if needed
+    convert_all_to_sdf(current_directory)
     
     # Process all SDF files in the current directory
     for sdf_file in glob.glob("*.sdf"):
