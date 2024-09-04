@@ -23,13 +23,7 @@ Processes PlayMolecule results to obtain topology files.
 
 Requirements: parmed and tleap (AmberTools) must be installed
 
-### 4. charges_to_top.py
-Incorporates charges from Gaussian RESP2.OUT files into the .top files from PlayMolecule.
-1. Place the results folder from process_gaussian_folders.py and the folder with results from process_playmolecule.py in the same directory.
-2. Run the script: `python3 charges_to_top.py gaussian_folder playmolecule_folder`.
-3. The resulting topologies will be created in a new folder called "topologies".
-
-### 5. preprocess_host_top_file.py
+### 4. preprocess_host_top_file.py
 Modifies atom type names and molecule type names from PlayMolecule to ensure compatibility.
 1. Run it with: `python3 preprocess_host_top_file.py <host.top>`
 
@@ -37,7 +31,7 @@ This script:
 - Adds a prefix to all atom names to avoid compatibility errors with guest files.
 - Modifies the molecule name from MOL to the file name (e.g., CB8, TEMOA, etc.).
 
-### 6. merge_top_files.py
+### 5. merge_top_files.py
 Merges host and guest topology files.
 1. Run it with: `python3 merge_top_files.py <host_file.top> <guest_file.top>`
 

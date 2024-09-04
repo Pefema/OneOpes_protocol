@@ -212,23 +212,51 @@ def convert_all_to_sdf(directory):
                 except Exception as e:
                     print(f"Failed to convert {input_file_path}: {e}")
 
-# ... [Rest of the functions remain unchanged] ...
+def copy_structure_files(source_dir, destination_dir):
+    file_types = ['*.sdf', '*.cif', '*.pdb', '*.mol']
+    for file_type in file_types:
+        for file in glob.glob(os.path.join(source_dir, file_type)):
+            shutil.copy(file, destination_dir)
+            print(f"Copied {file} to {destination_dir}")
+
+def remove_structure_files(destination_dir):
+    file_types = ['*.sdf', '*.cif', '*.pdb', '*.mol']
+    for file_type in file_types:
+        for file in glob.glob(os.path.join(destination_dir, file_type)):
+            os.remove(file)
+            print(f"Removed {file}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Process CIF, PDB, and SDF files to prepare Gaussian inputs.")
+    parser = argparse.ArgumentParser(description="Process CIF, PDB, SDF, and MOL files to prepare Gaussian inputs.")
     parser.add_argument("--calculation_type", type=str, choices=["vacuum", "dielectric"], default="vacuum", help="Type of calculation: vacuum or dielectric (default: vacuum)")
     
     args = parser.parse_args()
     
     current_directory = os.getcwd()
     
-    # First, convert CIF and PDB files to SDF if needed
-    convert_all_to_sdf(current_directory)
+    # Create the gaussian folder two levels up
+    gaussian_folder = os.path.abspath(os.path.join(current_directory, '..', '..', 'gaussian'))
+    os.makedirs(gaussian_folder, exist_ok=True)
     
-    # Process all SDF files in the current directory
+    # Define paths for host and guest structure files
+    host_dir = os.path.abspath(os.path.join(current_directory, '..', '..', 'structure_files', 'host'))
+    guests_dir = os.path.abspath(os.path.join(current_directory, '..', '..', 'structure_files', 'guests'))
+    
+    # Copy structure files from host and guests directories to the gaussian folder
+    copy_structure_files(host_dir, gaussian_folder)
+    copy_structure_files(guests_dir, gaussian_folder)
+    
+    # Change working directory to the gaussian folder
+    os.chdir(gaussian_folder)
+    
+    # First, convert CIF, PDB, and MOL files to SDF if needed
+    convert_all_to_sdf(gaussian_folder)
+    
+    # Process all SDF files in the gaussian folder
     for sdf_file in glob.glob("*.sdf"):
         print(f"Processing {sdf_file}")
         process_single_sdf_file(sdf_file, args.calculation_type)
 
+    remove_structure_files(gaussian_folder)
 if __name__ == "__main__":
     main()

@@ -1,7 +1,8 @@
-import sys
 import os
+import sys
+import shutil
 
-def modify_topology_file(input_file, output_file, new_name):
+def modify_topology_file(input_file, new_name):
     # Read the entire input file
     with open(input_file, 'r') as f:
         content = f.readlines()
@@ -56,29 +57,83 @@ def modify_topology_file(input_file, output_file, new_name):
             # For all other sections, keep the lines unchanged
             modified_content.append(line)
 
-    # Write the modified content to the output file
-    with open(output_file, 'w') as f:
+    # Create a temporary file with the modified content
+    temp_file = input_file + '.temp'
+    with open(temp_file, 'w') as f:
         f.writelines(modified_content)
 
-def main():
-    # Check if the correct number of command-line arguments is provided
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <input_filename>")
+    return temp_file
+
+def select_folder(base_path):
+    folders = [f for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f))]
+    
+    if not folders:
+        print("No folders found in the specified directory.")
         sys.exit(1)
-
-    # Get the input filename from command-line argument
-    input_file = sys.argv[1]
     
-    # Extract the part before the first underscore to use as the new name
-    new_name = input_file.split('_')[0]
+    print("Available folders:")
+    for i, folder in enumerate(folders, 1):
+        print(f"{i}. {folder}")
     
-    # Generate the output filename
-    output_file = f"{new_name}_modified.top"
+    while True:
+        try:
+            choice = int(input("Enter the number of the folder you want to select: "))
+            if 1 <= choice <= len(folders):
+                return folders[choice - 1]
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
+def select_file(folder_path):
+    files = [f for f in os.listdir(folder_path) if f.endswith('.top')]
+    
+    if not files:
+        print("No .top files found in the selected folder.")
+        sys.exit(1)
+    
+    print("Available .top files:")
+    for i, file in enumerate(files, 1):
+        print(f"{i}. {file}")
+    
+    while True:
+        try:
+            choice = int(input("Enter the number of the file you want to process: "))
+            if 1 <= choice <= len(files):
+                return files[choice - 1]
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def main():
+    # Get the current working directory
+    current_dir = os.getcwd()
+    
+    # Set the base directory to ../../system_parameters/topologies/
+    base_dir = os.path.abspath(os.path.join(current_dir, '..', '..', 'system_parameters', 'topologies'))
+    
+    print(f"Working with topologies in: {base_dir}")
+    
+    # Select folder
+    selected_folder = select_folder(base_dir)
+    folder_path = os.path.join(base_dir, selected_folder)
+    
+    # Select file
+    selected_file = select_file(folder_path)
+    input_file = os.path.join(folder_path, selected_file)
+    
+    # Prompt user for the new molecule name
+    new_name = input("Enter the new molecule name: ")
+    
     # Call the function to modify the topology file
-    modify_topology_file(input_file, output_file, new_name)
+    temp_file = modify_topology_file(input_file, new_name)
     
-    print(f"Modified topology file saved as {output_file}")
+    # Replace the original file with the modified file
+    shutil.move(temp_file, input_file)
+    
+    print(f"Modified topology file has replaced the original file: {input_file}")
+    print(f"The molecule name has been changed to: {new_name}")
 
 # This condition is true if the script is run directly (not imported as a module)
 if __name__ == "__main__":
