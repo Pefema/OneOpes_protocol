@@ -12,14 +12,14 @@ Requirements: PyMol cmd must be installed (https://anaconda.org/conda-forge/pymo
 ### 2. process_gaussian_folders.py
 Processes Gaussian results to generate RESP2.OUT files.
 1. Prepare the results in subfolders in the same format as the output from prepare_gaussian.py.
-2. Run `process_gaussian_folders.py` in the folder containing the Gaussian results.
+2. Run `python3 process_gaussian_folders.py` in the folder containing the Gaussian results.
 
 Requirements: AmberTools (antechamber) must be installed (https://ambermd.org/GetAmber.php#ambertools)
 
 ### 3. process_playmolecule.py
 Processes PlayMolecule results to obtain topology files.
 1. Place the output folder from PlayMolecule in a designated folder.
-2. Run `process_playmolecule.py`.
+2. Run `python3 process_playmolecule.py`.
 
 Requirements: parmed and tleap (AmberTools) must be installed
 
