@@ -1,5 +1,6 @@
 import sys
 import os
+import shutil
 
 def extract_sections(input_file, output_file):
     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
@@ -76,22 +77,80 @@ def merge_files(file1, file2, output_file):
         out.writelines(molecules2)
         out.writelines(molecules1)
 
-def main():
-    if len(sys.argv) != 3:
-        print("Usage: python merge_top_files.py <host_file.top> <guest_file.top>")
+def select_folder(base_path):
+    folders = [f for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f))]
+    
+    if not folders:
+        print("No folders found in the specified directory.")
         sys.exit(1)
-
-    input_file1 = sys.argv[1]
-    input_file2 = sys.argv[2]
     
-    # Create .itp files
-    extract_sections(input_file1, f"{os.path.splitext(input_file1)[0]}.itp")
-    extract_sections(input_file2, f"{os.path.splitext(input_file2)[0]}.itp")
+    print("Available folders:")
+    for i, folder in enumerate(folders, 1):
+        print(f"{i}. {folder}")
     
-    # Create combined topol.top
-    merge_files(input_file1, input_file2, "topol.top")
+    while True:
+        try:
+            choice = int(input("Enter the number of the folder you want to select: "))
+            if 1 <= choice <= len(folders):
+                return folders[choice - 1]
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
-    print(f"Created {os.path.splitext(input_file1)[0]}.itp, {os.path.splitext(input_file2)[0]}.itp, and topol.top")
+def select_host_file(folder_path):
+    files = [f for f in os.listdir(folder_path) if f.endswith('.top')]
+    
+    if not files:
+        print("No .top files found in the selected folder.")
+        sys.exit(1)
+    
+    print("Available .top files:")
+    for i, file in enumerate(files, 1):
+        print(f"{i}. {file}")
+    
+    while True:
+        try:
+            choice = int(input("Enter the number of the host file: "))
+            if 1 <= choice <= len(files):
+                return files[choice - 1]
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def main():
+    # Set the base directory to ../../system_parameters/topologies/
+    base_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_parameters', 'topologies'))
+    
+    # Select folder
+    selected_folder = select_folder(base_dir)
+    folder_path = os.path.join(base_dir, selected_folder)
+    
+    # Select host file
+    host_file = select_host_file(folder_path)
+    host_file_path = os.path.join(folder_path, host_file)
+    
+    # Get all other .top files in the folder
+    guest_files = [f for f in os.listdir(folder_path) if f.endswith('.top') and f != host_file]
+    
+    # Create output directory
+    output_base_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation'))
+    os.makedirs(output_base_dir, exist_ok=True)
+    
+    for guest_file in guest_files:
+        guest_file_path = os.path.join(folder_path, guest_file)
+        output_dir = os.path.join(output_base_dir, f"{host_file.split('.')[0]}_{guest_file.split('.')[0]}")
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Create .itp files
+        extract_sections(host_file_path, os.path.join(output_dir, f"{host_file.split('.')[0]}.itp"))
+        extract_sections(guest_file_path, os.path.join(output_dir, f"{guest_file.split('.')[0]}.itp"))
+        
+        # Create combined topol.top
+        merge_files(host_file_path, guest_file_path, os.path.join(output_dir, "topol_0.top"))
+        
+        print(f"Created {host_file.split('.')[0]}.itp, {guest_file.split('.')[0]}.itp, and topol_0.top in {output_dir}")
 
 if __name__ == "__main__":
     main()
