@@ -119,6 +119,21 @@ def select_host_file(folder_path):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+def get_output_folder_name():
+    while True:
+        name = input("Enter a name for the output folder: ")
+        output_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation', name))
+        
+        if os.path.exists(output_dir):
+            print(f"Warning: The folder '{name}' already exists.")
+            confirm = input("Do you want to overwrite its contents? (yes/no): ").lower()
+            if confirm == 'yes':
+                return name
+            else:
+                print("Please choose a different name.")
+        else:
+            return name
+
 def main():
     # Set the base directory to ../../system_parameters/topologies/
     base_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_parameters', 'topologies'))
@@ -134,8 +149,11 @@ def main():
     # Get all other .top files in the folder
     guest_files = [f for f in os.listdir(folder_path) if f.endswith('.top') and f != host_file]
     
+    # Get output folder name from user
+    output_folder_name = get_output_folder_name()
+    
     # Create output directory
-    output_base_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation'))
+    output_base_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation', output_folder_name))
     os.makedirs(output_base_dir, exist_ok=True)
     
     for guest_file in guest_files:
@@ -151,6 +169,8 @@ def main():
         merge_files(host_file_path, guest_file_path, os.path.join(output_dir, "topol_0.top"))
         
         print(f"Created {host_file.split('.')[0]}.itp, {guest_file.split('.')[0]}.itp, and topol_0.top in {output_dir}")
+
+    print(f"All files have been created in {output_base_dir}")
 
 if __name__ == "__main__":
     main()
