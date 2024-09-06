@@ -156,6 +156,9 @@ def main():
     output_base_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation', output_folder_name))
     os.makedirs(output_base_dir, exist_ok=True)
     
+    # Set the pdb files directory
+    pdb_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_parameters', 'pdb_files'))
+    
     for guest_file in guest_files:
         guest_file_path = os.path.join(folder_path, guest_file)
         output_dir = os.path.join(output_base_dir, f"{host_file.split('.')[0]}_{guest_file.split('.')[0]}")
@@ -166,9 +169,25 @@ def main():
         extract_sections(guest_file_path, os.path.join(output_dir, f"{guest_file.split('.')[0]}.itp"))
         
         # Create combined topol.top
-        merge_files(host_file_path, guest_file_path, os.path.join(output_dir, "topol_0.top"))
+        merge_files(host_file_path, guest_file_path, os.path.join(output_dir, "topol.top"))
         
-        print(f"Created {host_file.split('.')[0]}.itp, {guest_file.split('.')[0]}.itp, and topol_0.top in {output_dir}")
+        print(f"Created {host_file.split('.')[0]}.itp, {guest_file.split('.')[0]}.itp, and topol.top in {output_dir}")
+        
+        # Copy corresponding PDB files
+        host_pdb = os.path.join(pdb_dir, f"{host_file.split('.')[0]}.pdb")
+        guest_pdb = os.path.join(pdb_dir, f"{guest_file.split('.')[0]}.pdb")
+        
+        if os.path.exists(host_pdb):
+            shutil.copy(host_pdb, os.path.join(output_dir, f"{host_file.split('.')[0]}.pdb"))
+            print(f"Copied {host_pdb} to {output_dir}")
+        else:
+            print(f"Warning: {host_pdb} not found")
+        
+        if os.path.exists(guest_pdb):
+            shutil.copy(guest_pdb, os.path.join(output_dir, f"{guest_file.split('.')[0]}.pdb"))
+            print(f"Copied {guest_pdb} to {output_dir}")
+        else:
+            print(f"Warning: {guest_pdb} not found")
 
     print(f"All files have been created in {output_base_dir}")
 
