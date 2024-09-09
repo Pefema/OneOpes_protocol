@@ -2,40 +2,36 @@ import os
 import glob
 from rdkit import Chem
 import numpy as np
+from pymol import cmd
 
-def load_and_rename_pdb(file_path, new_name):
+def convert_cif_to_pdb(cif_file):
+    pdb_file = os.path.splitext(cif_file)[0] + '.pdb'
+    try:
+        cmd.reinitialize()
+        cmd.load(cif_file, "molecule")
+        cmd.save(pdb_file, "molecule", format="pdb")
+        print(f"Converted {cif_file} to {pdb_file}")
+        return pdb_file
+    except Exception as e:
+        print(f"Error converting {cif_file} to PDB: {e}")
+        return None
+
+def load_and_rename_molecule(file_path, new_name):
     if not os.path.exists(file_path):
         print(f"Error: File not found: {file_path}")
         return None
     
-    # Read the PDB file as text
-    with open(file_path, 'r') as f:
-        pdb_lines = f.readlines()
-    
-    # Rename residues
-    renamed_lines = []
-    for line in pdb_lines:
-        if line.startswith("ATOM") or line.startswith("HETATM"):
-            # Replace the residue name (columns 18-20) with the new name
-            line = line[:17] + f"{new_name:>3}" + line[20:]
-        renamed_lines.append(line)
-    
-    # Create a temporary file with renamed residues
-    temp_file = f"temp_{new_name}.pdb"
-    with open(temp_file, 'w') as f:
-        f.writelines(renamed_lines)
-    
-    # Load the molecule from the temporary file
-    mol = Chem.MolFromPDBFile(temp_file, removeHs=False)
-    
-    # Remove the temporary file
-    os.remove(temp_file)
+    mol = Chem.MolFromPDBFile(file_path, removeHs=False)
     
     if mol is None:
         print(f"Error: Failed to load molecule from file: {file_path}")
-    else:
-        print(f"Successfully loaded and renamed molecule from: {file_path}")
+        return None
     
+    # Rename residues
+    for atom in mol.GetAtoms():
+        atom.GetPDBResidueInfo().SetResidueName(new_name[:3])
+    
+    print(f"Successfully loaded and renamed molecule from: {file_path}")
     return mol
 
 def rigid_docking(ligand, host):
@@ -81,8 +77,8 @@ def process_host_guest_pair(host_file, guest_file, output_folder):
     combined_output = os.path.join(output_dir, f"{host_name}_{guest_name}.pdb")
     
     # Load molecules and rename residues
-    host = load_and_rename_pdb(host_file, host_name[:3])  # Use first 3 characters of host name
-    guest = load_and_rename_pdb(guest_file, guest_name[:3])  # Use first 3 characters of guest name
+    host = load_and_rename_molecule(host_file, host_name[:3])
+    guest = load_and_rename_molecule(guest_file, guest_name[:3])
     
     if host is None or guest is None:
         print(f"Docking cannot proceed for {host_name} and {guest_name} due to errors in loading molecules.")
@@ -134,6 +130,27 @@ def get_output_folder(base_dir):
         
         print("Invalid choice. Please try again.")
 
+def get_molecule_files(directory):
+    pdb_files = glob.glob(os.path.join(directory, '*.pdb'))
+    cif_files = glob.glob(os.path.join(directory, '*.cif'))
+    
+    all_files = {}
+    
+    # First, add all PDB files
+    for pdb_file in pdb_files:
+        base_name = os.path.splitext(os.path.basename(pdb_file))[0]
+        all_files[base_name] = pdb_file
+    
+    # Then, convert CIF files to PDB if a PDB doesn't exist for that molecule
+    for cif_file in cif_files:
+        base_name = os.path.splitext(os.path.basename(cif_file))[0]
+        if base_name not in all_files:
+            pdb_file = convert_cif_to_pdb(cif_file)
+            if pdb_file:
+                all_files[base_name] = pdb_file
+    
+    return list(all_files.values())
+
 def main():
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
     host_dir = os.path.join(base_dir, 'structure_files', 'host')
@@ -143,9 +160,9 @@ def main():
     output_base = get_output_folder(base_dir)
     print(f"Results will be saved in: {output_base}")
     
-    # Get all host and guest files
-    host_files = glob.glob(os.path.join(host_dir, '*.pdb'))
-    guest_files = glob.glob(os.path.join(guest_dir, '*.pdb'))
+    # Get all host and guest files (converting CIF to PDB if necessary)
+    host_files = get_molecule_files(host_dir)
+    guest_files = get_molecule_files(guest_dir)
     
     # Process all combinations
     for host_file in host_files:
