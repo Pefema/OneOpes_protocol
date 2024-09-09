@@ -103,6 +103,11 @@ def process_host_guest_pair(host_file, guest_file, output_folder):
 def get_output_folder(base_dir):
     system_prep_dir = os.path.join(base_dir, 'system_preparation')
     
+    # Check if system_preparation folder exists, if not create it
+    if not os.path.exists(system_prep_dir):
+        os.makedirs(system_prep_dir)
+        print(f"Created 'system_preparation' folder at {system_prep_dir}")
+    
     # Get existing folders
     existing_folders = [f for f in os.listdir(system_prep_dir) if os.path.isdir(os.path.join(system_prep_dir, f))]
     
