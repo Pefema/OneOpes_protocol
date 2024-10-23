@@ -32,6 +32,8 @@ This pipeline automates the following processes:
 
 ```
 .
+├── gaussian_results/                 # Gaussian results example
+├── playmolecule_results/             # Playmolecule results example
 ├── structure_files/
 │   ├── host/
 │   └── guests/
@@ -44,6 +46,7 @@ This pipeline automates the following processes:
 ├── system_parameters/
 │   ├── charges/
 │   ├── topologies/
+│   ├── mdp_files/
 │   └── water_force_fields/
 └── system_preparation/
 ```
