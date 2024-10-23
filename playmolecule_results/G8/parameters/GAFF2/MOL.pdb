@@ -1,0 +1,81 @@
+MODEL        1
+HETATM    1  C1  MOL     1       7.556  38.860  27.511  0.00  0.00      L    C  
+HETATM    2  C2  MOL     1       8.254  40.138  26.964  0.00  0.00      L    C  
+HETATM    3  C3  MOL     1       7.474  38.797  29.062  0.00  0.00      L    C  
+HETATM    4  C4  MOL     1       9.706  40.425  27.466  0.00  0.00      L    C  
+HETATM    5  C5  MOL     1       7.185  37.364  29.587  0.00  0.00      L    C  
+HETATM    6  C6  MOL     1      10.775  39.329  27.156  0.00  0.00      L    C  
+HETATM    7  C7  MOL     1       7.505  37.153  31.100  0.00  0.00      L    C  
+HETATM    8  C8  MOL     1      10.885  38.151  28.173  0.00  0.00      L    C  
+HETATM    9  C9  MOL     1       8.967  37.477  31.545  0.00  0.00      L    C  
+HETATM   10  C10 MOL     1      11.336  38.566  29.604  0.00  0.00      L    C  
+HETATM   11  C11 MOL     1      10.070  36.633  30.832  0.00  0.00      L    C  
+HETATM   12  C12 MOL     1      11.424  37.380  30.617  0.00  0.00      L    C  
+HETATM   13  N1  MOL     1      12.037  37.816  31.942  0.00  0.00      L    N1+
+HETATM   14  H1  MOL     1       6.537  38.814  27.105  0.00  0.00      L    H  
+HETATM   15  H2  MOL     1       8.068  37.977  27.111  0.00  0.00      L    H  
+HETATM   16  H3  MOL     1       8.269  40.080  25.867  0.00  0.00      L    H  
+HETATM   17  H4  MOL     1       7.629  41.006  27.209  0.00  0.00      L    H  
+HETATM   18  H5  MOL     1       8.414  39.154  29.482  0.00  0.00      L    H  
+HETATM   19  H6  MOL     1       6.698  39.486  29.420  0.00  0.00      L    H  
+HETATM   20  H7  MOL     1      10.034  41.344  26.963  0.00  0.00      L    H  
+HETATM   21  H8  MOL     1       9.701  40.684  28.530  0.00  0.00      L    H  
+HETATM   22  H9  MOL     1       6.125  37.136  29.416  0.00  0.00      L    H  
+HETATM   23  H10 MOL     1       7.741  36.629  28.993  0.00  0.00      L    H  
+HETATM   24  H11 MOL     1      10.585  38.920  26.155  0.00  0.00      L    H  
+HETATM   25  H12 MOL     1      11.758  39.815  27.095  0.00  0.00      L    H  
+HETATM   26  H13 MOL     1       6.816  37.772  31.690  0.00  0.00      L    H  
+HETATM   27  H14 MOL     1       7.277  36.112  31.363  0.00  0.00      L    H  
+HETATM   28  H15 MOL     1       9.932  37.621  28.210  0.00  0.00      L    H  
+HETATM   29  H16 MOL     1      11.610  37.427  27.779  0.00  0.00      L    H  
+HETATM   30  H17 MOL     1       9.153  38.550  31.432  0.00  0.00      L    H  
+HETATM   31  H18 MOL     1       9.042  37.295  32.624  0.00  0.00      L    H  
+HETATM   32  H19 MOL     1      12.327  39.030  29.523  0.00  0.00      L    H  
+HETATM   33  H20 MOL     1      10.677  39.344  30.003  0.00  0.00      L    H  
+HETATM   34  H21 MOL     1      10.256  35.738  31.438  0.00  0.00      L    H  
+HETATM   35  H22 MOL     1       9.713  36.239  29.876  0.00  0.00      L    H  
+HETATM   36  H23 MOL     1      12.112  36.650  30.175  0.00  0.00      L    H  
+HETATM   37  H24 MOL     1      11.420  38.492  32.418  0.00  0.00      L    H  
+HETATM   38  H25 MOL     1      12.952  38.273  31.803  0.00  0.00      L    H  
+HETATM   39  H26 MOL     1      12.164  37.015  32.579  0.00  0.00      L    H  
+CONECT    1    2    3   14   15
+CONECT    2    1    4   16   17
+CONECT    3    1    5   18   19
+CONECT    4    2    6   20   21
+CONECT    5    3    7   22   23
+CONECT    6    4    8   24   25
+CONECT    7    5    9   26   27
+CONECT    8    6   10   28   29
+CONECT    9    7   11   30   31
+CONECT   10    8   12   32   33
+CONECT   11    9   12   34   35
+CONECT   12   10   11   13   36
+CONECT   13   12   37   38   39
+CONECT   14    1
+CONECT   15    1
+CONECT   16    2
+CONECT   17    2
+CONECT   18    3
+CONECT   19    3
+CONECT   20    4
+CONECT   21    4
+CONECT   22    5
+CONECT   23    5
+CONECT   24    6
+CONECT   25    6
+CONECT   26    7
+CONECT   27    7
+CONECT   28    8
+CONECT   29    8
+CONECT   30    9
+CONECT   31    9
+CONECT   32   10
+CONECT   33   10
+CONECT   34   11
+CONECT   35   11
+CONECT   36   12
+CONECT   37   13
+CONECT   38   13
+CONECT   39   13
+ENDMDL
+END

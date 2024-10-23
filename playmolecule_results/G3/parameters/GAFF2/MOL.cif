@@ -1,0 +1,128 @@
+data_MOL
+#
+#
+_chem_comp.id                  MOL
+_chem_comp.type                NON-POLYMER
+_chem_comp.pdbx_formal_charge  1
+##
+loop_
+_chem_comp_atom.comp_id
+_chem_comp_atom.atom_id
+_chem_comp_atom.alt_atom_id
+_chem_comp_atom.type_symbol
+_chem_comp_atom.charge
+_chem_comp_atom.partial_charge
+_chem_comp_atom.model_Cartn_x
+_chem_comp_atom.model_Cartn_y
+_chem_comp_atom.model_Cartn_z
+_chem_comp_atom.pdbx_model_Cartn_x_ideal
+_chem_comp_atom.pdbx_model_Cartn_y_ideal
+_chem_comp_atom.pdbx_model_Cartn_z_ideal
+MOL  C1   ca  C  0  -0.316721  11.671  40.588  32.939  11.671  40.588  32.939  
+MOL  C2   ca  C  0  -0.147774  11.841  41.803  32.248  11.841  41.803  32.248  
+MOL  C3   ca  C  0  -0.351987  11.097  37.001  30.940  11.097  37.001  30.940  
+MOL  C4   za  C  0  -0.380215  11.636  40.623  30.134  11.636  40.623  30.134  
+MOL  C5   ca  C  0   0.215546  11.129  37.091  32.333  11.129  37.091  32.333  
+MOL  C6   zb  C  0  -0.004757  11.478  39.390  30.827  11.478  39.390  30.827  
+MOL  C7   zc  C  0   0.092847  11.282  38.154  30.157  11.282  38.154  30.157  
+MOL  C8   ca  C  0   0.483981  11.488  39.379  32.252  11.488  39.379  32.252  
+MOL  C9   zd  C  0   0.307284  11.822  41.819  30.841  11.822  41.819  30.841  
+MOL  C10  ze  C  0  -0.333974   7.314  35.061  27.101   7.314  35.061  27.101  
+MOL  C11  zf  C  0  -0.181254   6.943  36.207  26.512   6.943  36.207  26.512  
+MOL  C12  c3  C  0  -0.017377   8.273  39.855  26.883   8.273  39.855  26.883  
+MOL  C13  c3  C  0  -0.152121   9.598  37.731  26.635   9.598  37.731  26.635  
+MOL  C14  c3  C  0  -0.054112   8.581  39.814  28.410   8.581  39.814  28.410  
+MOL  C15  c3  C  0   0.001735   7.360  37.680  28.609   7.360  37.680  28.609  
+MOL  C16  zg  C  0  -0.016521   7.093  37.619  27.070   7.093  37.619  27.070  
+MOL  C17  zh  C  0  -0.047594   8.224  38.401  26.323   8.224  38.401  26.323  
+MOL  C18  zi  C  0  -0.074259   9.790  37.633  28.187   9.790  37.633  28.187  
+MOL  C19  zj  C  0  -0.042657  12.213  44.269  30.704  12.213  44.269  30.704  
+MOL  C20  zk  C  0   0.133502  11.226  38.011  28.628  11.226  38.011  28.628  
+MOL  N1   nb  N  0   -0.55519  11.310  38.255  32.967  11.310  38.255  32.967  
+MOL  N2   zl  N  1  -0.037204   8.680  38.379  28.947   8.680  38.379  28.947  
+MOL  O1   zm  O  0  -0.636821  12.092  36.954  28.203  12.092  36.954  28.203  
+MOL  O2   zn  O  0  -0.317981  11.969  42.978  30.109  11.969  42.978  30.109  
+MOL  H1   ha  H  0   0.199198  11.682  40.569  34.025  11.682  40.569  34.025  
+MOL  H2   ha  H  0   0.165528  11.985  42.720  32.811  11.985  42.720  32.811  
+MOL  H3   ha  H  0   0.165724  10.959  36.029  30.473  10.959  36.029  30.473  
+MOL  H4   ha  H  0   0.124426  11.640  40.703  29.056  11.640  40.703  29.056  
+MOL  H5   h4  H  0   0.114967  11.005  36.208  32.963  11.005  36.208  32.963  
+MOL  H6   zo  H  0   0.168167   7.221  34.112  26.570   7.221  34.112  26.570  
+MOL  H7   zo  H  0   0.168167   7.690  34.996  28.119   7.690  34.996  28.119  
+MOL  H8   ha  H  0   0.161651   6.547  36.171  25.495   6.547  36.171  25.495  
+MOL  H9   hc  H  0   0.055849   7.316  40.363  26.708   7.316  40.363  26.708  
+MOL  H10  hc  H  0   0.055849   9.043  40.440  26.362   9.043  40.440  26.362  
+MOL  H11  hc  H  0   0.103098   9.646  36.725  26.196   9.646  36.725  26.196  
+MOL  H12  hc  H  0   0.103098  10.408  38.304  26.165  10.408  38.304  26.165  
+MOL  H13  hx  H  0   0.094032   9.528  40.317  28.616   9.528  40.317  28.616  
+MOL  H14  hx  H  0   0.094032   7.791  40.327  28.962   7.791  40.327  28.962  
+MOL  H15  hx  H  0   0.101236   6.555  38.231  29.099   6.555  38.231  29.099  
+MOL  H16  hx  H  0   0.101236   7.391  36.677  29.034   7.391  36.677  29.034  
+MOL  H17  hc  H  0   0.098636   6.145  38.142  26.882   6.145  38.142  26.882  
+MOL  H18  hc  H  0   0.101535   8.036  38.414  25.240   8.036  38.414  25.240  
+MOL  H19  hx  H  0   0.106686   9.663  36.582  28.458   9.663  36.582  28.458  
+MOL  H20  h1  H  0   0.092058  12.308  45.029  29.918  12.308  45.029  29.918  
+MOL  H21  h1  H  0   0.092058  13.145  44.257  31.283  13.145  44.257  31.283  
+MOL  H22  h1  H  0   0.092058  11.382  44.556  31.361  11.382  44.556  31.361  
+MOL  H23  h1  H  0    0.23106  11.519  38.946  28.137  11.519  38.946  28.137  
+MOL  H24  hn  H  0   0.196715   8.856  38.365  29.966   8.856  38.365  29.966  
+MOL  H25  zp  H  0    0.44656  13.009  37.146  28.483  13.009  37.146  28.483  
+##
+loop_
+_chem_comp_bond.comp_id
+_chem_comp_bond.atom_id_1
+_chem_comp_bond.atom_id_2
+_chem_comp_bond.value_order
+MOL  C1   C2   SING  
+MOL  C1   C8   DOUB  
+MOL  C1   H1   SING  
+MOL  C2   C9   DOUB  
+MOL  C2   H2   SING  
+MOL  C3   C5   SING  
+MOL  C3   C7   DOUB  
+MOL  C3   H3   SING  
+MOL  C4   C6   DOUB  
+MOL  C4   C9   SING  
+MOL  C4   H4   SING  
+MOL  C5   N1   DOUB  
+MOL  C5   H5   SING  
+MOL  C6   C7   SING  
+MOL  C6   C8   SING  
+MOL  C7   C20  SING  
+MOL  C8   N1   SING  
+MOL  C9   O2   SING  
+MOL  C10  C11  DOUB  
+MOL  C10  H6   SING  
+MOL  C10  H7   SING  
+MOL  C11  C16  SING  
+MOL  C11  H8   SING  
+MOL  C12  C14  SING  
+MOL  C12  C17  SING  
+MOL  C12  H9   SING  
+MOL  C12  H10  SING  
+MOL  C13  C17  SING  
+MOL  C13  C18  SING  
+MOL  C13  H11  SING  
+MOL  C13  H12  SING  
+MOL  C14  N2   SING  
+MOL  C14  H13  SING  
+MOL  C14  H14  SING  
+MOL  C15  C16  SING  
+MOL  C15  N2   SING  
+MOL  C15  H15  SING  
+MOL  C15  H16  SING  
+MOL  C16  C17  SING  
+MOL  C16  H17  SING  
+MOL  C17  H18  SING  
+MOL  C18  C20  SING  
+MOL  C18  N2   SING  
+MOL  C18  H19  SING  
+MOL  C19  O2   SING  
+MOL  C19  H20  SING  
+MOL  C19  H21  SING  
+MOL  C19  H22  SING  
+MOL  C20  O1   SING  
+MOL  C20  H23  SING  
+MOL  N2   H24  SING  
+MOL  O1   H25  SING  
+##

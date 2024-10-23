@@ -1,0 +1,156 @@
+
+#############
+Executing parameterize-1 <function main at 0x7f6de0f8e8c0> on 2024-02-06 19:58
+ARGS:
+am1_path_length: 15
+dihed_fit_type: iterative
+dihed_num_iterations: 1
+dihed_opt_type: mm
+dihedral_multiplicity: 6
+dihedrals: null
+fit_charges: None
+fit_dihedrals: AIMNet2
+forcefield: GAFF2
+fragmentation: false
+keep_atomnames: false
+keep_charge: null
+min_type: mm
+molecule: /data/in/G4.cif
+outdir: /data/out
+qm_basis: 6-311++G**
+qm_max_jobs: 999999
+qm_memory: 12000
+qm_ncpus: 4
+qm_theory: wB97X-D
+scratchdir: /data/scratch
+seed: 20170920
+#############
+2024-02-06 19:58:30,049 - parameterize.cli - INFO - ===== Parameterize =====
+2024-02-06 19:58:30,049 - parameterize.cli - INFO - Citation:
+2024-02-06 19:58:30,049 - parameterize.cli - INFO -     R. Galvelis, S. Doerr, J. M. Damas, M. J. Harvey, and G. De Fabritiis
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -     A Scalable Molecular Force Field Parameterization Method Based on Density Functional Theory and Quantum-Level Machine Learning
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -     J. Chem. Inf. Model. 2019, 59, 8, 3485-3493
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -     DOI: 10.1021/acs.jcim.9b00439
+2024-02-06 19:58:30,050 - parameterize.cli - INFO - === Arguments ===
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -      am1_path_length: 15
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -           calculator: AIMNet2
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -          charge_type: None
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -       dihed_fit_type: iterative
+2024-02-06 19:58:30,050 - parameterize.cli - INFO - dihed_num_iterations: 1
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -       dihed_opt_type: mm
+2024-02-06 19:58:30,050 - parameterize.cli - INFO - dihedral_multiplicity: 6
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -            dihedrals: None
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -             filename: /data/in/G4.cif
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -         fit_dihedral: True
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -           fix_charge: None
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -           forcefield: GAFF2
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -       keep_atomnames: False
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -             min_type: mm
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -     no_fragmentation: True
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -             num_fits: 1
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -               outdir: /data/out
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -           parameters: None
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -           qm_options: {'code': 'Psi4', 'theory': 'wB97X-D', 'basis': '6-311++G**', 'environment': 'vacuum'}
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -        queue_options: {'name': 'local', 'ncpus': 4, 'memory': 12000, 'groupname': 'dce99ced-bac3-4fc1-b014-d741c80d1f91'}
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -                 seed: 20170920
+2024-02-06 19:58:30,050 - parameterize.cli - INFO -     skip_terminal_hs: False
+2024-02-06 19:58:30,221 - root - WARNING - Warning: importing 'simtk.openmm' is deprecated.  Import 'openmm' instead.
+2024-02-06 19:58:30,392 - parameterize.fftype - INFO - Assigning atom types with gaff2
+2024-02-06 19:58:30,395 - parameterize.antechamber - INFO - Running "antechamber"
+2024-02-06 19:58:30,436 - parameterize.antechamber - INFO - Info: The atom type is set to gaff2; the options available to the -at flag are
+2024-02-06 19:58:30,436 - parameterize.antechamber - INFO - Running "parmchk2"
+2024-02-06 19:58:30,488 - parameterize.cli - INFO - === Dihedral angles ===
+2024-02-06 19:58:30,657 - parameterize.cli - INFO - Parameterizable dihedral angles (and their equivalents):
+2024-02-06 19:58:30,657 - parameterize.cli - INFO -      1: C5-C6-O3-H20
+2024-02-06 19:58:30,657 - parameterize.cli - INFO - Selected dihedral angles:
+2024-02-06 19:58:30,657 - parameterize.cli - INFO -      1: C5-C6-O3-H20
+2024-02-06 19:58:30,657 - parameterize.cli - INFO - Overriding ncpus to 4
+2024-02-06 19:58:30,657 - parameterize.cli - INFO - Overriding memory to 12000
+2024-02-06 19:58:32,869 - parameterize.cli - INFO - Reference method: AIMNet2Calculator
+2024-02-06 19:58:32,876 - parameterize.cli - INFO - === Initial atomic charge fitting ===
+2024-02-06 19:58:32,876 - parameterize.cli - INFO - Method: None
+2024-02-06 19:58:32,876 - parameterize.cli - INFO - Initial atomic charges are taken from /data/in/G4.cif
+2024-02-06 19:58:32,876 - parameterize.cli - INFO - MM dipole:  2.957  3.741 14.835; total: 15.583
+2024-02-06 19:58:33,057 - parameterize.cli - INFO - === Geometry minimization ===
+2024-02-06 19:58:33,057 - parameterize.cli - INFO - Model: MM with the initial force field parameters
+2024-02-06 19:58:36,077 - parameterize.cli - INFO - === Atomic charge fitting ===
+2024-02-06 19:58:36,077 - parameterize.cli - INFO - Method: None
+2024-02-06 19:58:36,077 - parameterize.cli - INFO - Atomic charges are taken from /data/in/G4.cif
+2024-02-06 19:58:36,077 - parameterize.cli - INFO - MM dipole:  3.233  3.687 14.750; total: 15.544
+2024-02-06 19:58:36,223 - parameterize.cli - INFO - 
+2024-02-06 19:58:36,223 - parameterize.cli - INFO - === Molecule MOL, 41 atoms, 45 bonds ===
+2024-02-06 19:58:36,223 - parameterize.cli - INFO - Name (init)  Name (new)  Element  Atomtype  Charge (init)  Charge (fit)  Chiral centers
+2024-02-06 19:58:36,223 - parameterize.cli - INFO -          C1          C1        C        ca         -0.160        -0.160                
+2024-02-06 19:58:36,223 - parameterize.cli - INFO -          C2          C2        C        ca         -0.390        -0.390                
+2024-02-06 19:58:36,223 - parameterize.cli - INFO -          C3          C3        C        ca          0.025         0.025                
+2024-02-06 19:58:36,223 - parameterize.cli - INFO -          C4          C4        C        ca         -0.222        -0.222                
+2024-02-06 19:58:36,223 - parameterize.cli - INFO -          C5          C5        C        za          0.345         0.345                
+2024-02-06 19:58:36,223 - parameterize.cli - INFO -          C6          C6        C        zb          0.284         0.284                
+2024-02-06 19:58:36,223 - parameterize.cli - INFO -          C7          C7        C         c          0.471         0.471                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          C8          C8        C        c3          0.001         0.001                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          C9          C9        C        c3         -0.018        -0.018                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         C10         C10        C        c3         -0.215        -0.215                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         C11         C11        C        c3         -0.048        -0.048                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         C12         C12        C        c3         -0.126        -0.126                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         C13         C13        C        c3          0.064         0.064               R
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         C14         C14        C        c3          0.002         0.002               R
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         C15         C15        C        c3         -0.085        -0.085               R
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         C16         C16        C        c3         -0.026        -0.026               S
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         C17         C17        C        c3         -0.408        -0.408                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          N1          N1        N        nx         -0.045        -0.045               S
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          O1          O1        O         o         -0.451        -0.451                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          O2          O2        O        os         -0.353        -0.353                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          O3          O3        O        zc         -0.560        -0.560                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H1          H1        H        ha          0.169         0.169                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H2          H2        H        ha          0.227         0.227                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H3          H3        H        hc          0.067         0.067                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H4          H4        H        hc          0.067         0.067                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H5          H5        H        hc          0.045         0.045                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H6          H6        H        hc          0.045         0.045                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H7          H7        H        hc          0.113         0.113                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H8          H8        H        hc          0.113         0.113                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -          H9          H9        H        hc          0.070         0.070                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         H10         H10        H        hc          0.070         0.070                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         H11         H11        H        hx          0.145         0.145                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         H12         H12        H        hx          0.145         0.145                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         H13         H13        H        h1          0.131         0.131                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         H14         H14        H        hc          0.047         0.047                
+2024-02-06 19:58:36,224 - parameterize.cli - INFO -         H15         H15        H        hx          0.128         0.128                
+2024-02-06 19:58:36,225 - parameterize.cli - INFO -         H16         H16        H        hx          0.191         0.191                
+2024-02-06 19:58:36,225 - parameterize.cli - INFO -         H17         H17        H        hx          0.191         0.191                
+2024-02-06 19:58:36,225 - parameterize.cli - INFO -         H18         H18        H        hx          0.191         0.191                
+2024-02-06 19:58:36,225 - parameterize.cli - INFO -         H19         H19        H        hn          0.317         0.317                
+2024-02-06 19:58:36,225 - parameterize.cli - INFO -         H20         H20        H        zd          0.446         0.446                
+2024-02-06 19:58:36,225 - parameterize.cli - INFO - 
+2024-02-06 19:58:36,622 - matplotlib.font_manager - INFO - generated new fontManager
+2024-02-06 19:58:36,789 - parameterize.cli - INFO - === Dihedral angle scanning iteration 1 ===
+2024-02-06 19:58:36,790 - parameterize.cli - INFO - Dihedral scanning: minimized with MM (using the initial force field parameters)
+2024-02-06 19:58:36,793 - parameterize.dihedral - INFO - Number of rotamers per dihedral angles: 36
+2024-02-06 19:58:36,793 - parameterize.dihedral - INFO - Generate rotamers for:
+2024-02-06 19:58:36,793 - parameterize.dihedral - INFO -    1: C5-C6-O3-H20
+2024-02-06 19:58:36,997 - parameterize.dihedral - INFO - Minimize rotamers with MM for:
+2024-02-06 19:58:36,997 - parameterize.dihedral - INFO -    1: C5-C6-O3-H20
+2024-02-06 19:58:37,595 - parameterize.dihedral - INFO - Compute rotamer energies for:
+2024-02-06 19:58:37,595 - parameterize.dihedral - INFO -    1: C5-C6-O3-H20
+2024-02-06 19:58:41,444 - parameterize.cli - INFO - Valid rotamers:
+2024-02-06 19:58:41,445 - parameterize.cli - INFO -    0: C5-C6-O3-H20: 36
+2024-02-06 19:58:41,445 - parameterize.cli - INFO - === Dihedral parameter fitting ===
+2024-02-06 19:58:41,496 - parameterize.dihedral - INFO - Start parameter fitting
+2024-02-06 19:58:41,499 - parameterize.dihedral - INFO - Initial loss: 0.121255
+2024-02-06 19:58:41,499 - parameterize.dihedral - INFO - Global optimizer: iterative
+2024-02-06 19:58:41,499 - parameterize.dihedral - INFO - Number of iterations: 1
+2024-02-06 19:58:42,811 - parameterize.dihedral - INFO - Iteration 1 loss: 0.001338
+2024-02-06 19:58:42,811 - parameterize.dihedral - INFO - Final loss: 0.001338
+2024-02-06 19:58:42,811 - parameterize.dihedral - INFO - Finished parameter fitting in 1.314318 s
+2024-02-06 19:58:42,811 - parameterize.dihedral - INFO - Energy offset is -2.0232 kcal/mol
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - 
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - == Diagnostic Energies ==
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - 
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - Bond     :      3.12801 kcal/mol
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - Angle    :     19.09378 kcal/mol
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - Dihedral :     14.13083 kcal/mol
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - Improper :      0.32148 kcal/mol
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - Electro  :     92.73455 kcal/mol
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - VdW      :      1.10501 kcal/mol
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - 
+2024-02-06 19:58:43,057 - parameterize.cli - INFO - 

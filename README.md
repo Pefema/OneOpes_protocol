@@ -9,8 +9,11 @@ This pipeline automates the following processes:
 2. Gaussian input preparation and processing
 3. Playmolecule output processing
 4. Topology generation and system setup
-5. System preparation for molecular dynamics
-6. PLUMED files generation and multireplica generation
+5. Water model integration
+6. Molecular docking for initial binding poses
+7. System preparation for molecular dynamics
+8. Initial PLUMED setup
+9. Final PLUMED configuration and analysis
 
 ## Prerequisites
 
@@ -22,6 +25,8 @@ This pipeline automates the following processes:
 - Python 3.7+
 - PyMOL
 - BioPython
+- AutoDock Vina
+- MGLTools
 
 ## Directory Structure
 
@@ -45,7 +50,7 @@ This pipeline automates the following processes:
 
 ## Important Note on Script Usage
 
-All scripts must be executed from within the `scripts/automated_protocol/` directory. This ensures that relative paths to other directories are correctly maintained. Before running any script, make sure to:
+Most scripts must be executed from within the `scripts/automated_protocol/` directory to ensure correct relative paths. The exception is `7_auto_prepare.py`, which must be run inside each individual system folder within `system_preparation/`. Before running scripts, navigate to:
 
 ```bash
 cd path/to/project/scripts/automated_protocol/
@@ -133,34 +138,34 @@ python 5_get_water_model.py
 **Output:**
 - Modified topology file (topol_water.top) with integrated water model parameters
 
-### 6. PLUMED Configuration
-#### 6.1 Initial PLUMED Setup (`6_plumed_generator_start.py`)
+### 6. Molecular Docking (`6_docking.py`)
 ```bash
-python 6_plumed_generator_start.py
+python 6_docking.py
 ```
 **Input:**
-- NPT equilibrated structure (npt.gro)
+- Host PDB file
+- Guest PDB file
+- System preparation folder
 
 **Output:**
-- Initial PLUMED info file (plumed_info.txt) containing:
-  - Group definitions
-  - Selected atoms for collective variables
-  - Water oxygen atoms information
+- Docked guest-host complex
+- PDBQT files for receptor and ligand
+- Docking configuration file
+- Docked poses in PDB format
 
-#### 6.2 Template Structure Renumbering (`6_2_renumber.py`)
-```bash
-python 6_2_renumber.py
-```
-**Input:**
-- Template PDB files (guest.pdb, host_template.pdb)
-
-**Output:**
-- Renumbered template PDB file (template_updated.pdb) with consistent atom numbering
+**Features:**
+- Automated search box calculation
+- Structure preparation using MGLTools
+- AutoDock Vina docking
+- Conversion of docked poses to PDB format
 
 ### 7. System Preparation (`7_auto_prepare.py`)
 ```bash
-python 7_auto_prepare.py protein_file ligand_file topol_file [--water_points {3,4,5}]
+# Must be run inside each system folder in system_preparation/
+cd path/to/project/system_preparation/host_guest_folder/
+python ../../scripts/automated_protocol/7_auto_prepare.py protein_file ligand_file topol_file [--water_points {3,4,5}]
 ```
+
 **Input:**
 - Host structure file (.pdb/.gro)
 - Guest structure file (.pdb/.gro)
@@ -176,9 +181,23 @@ python 7_auto_prepare.py protein_file ligand_file topol_file [--water_points {3,
 - Index files (index.ndx)
 - Position restraint files (posre.itp, posre_ligand.itp)
 
-### 8. PLUMED Configuration Finalization (`8_auto_plumed.py`)
+### 8. Initial PLUMED Setup (`8_plumed_generator_start.py`)
 ```bash
-python 8_auto_plumed.py system.pdb npt.gro [--double_funnel] [--other_side]
+python 8_plumed_generator_start.py
+```
+**Input:**
+- NPT equilibrated structure (npt.gro)
+
+**Output:**
+- Initial PLUMED info file (plumed_info.txt) containing:
+  - Group definitions
+  - Selected atoms for collective variables
+  - Water oxygen atoms information
+  - Ligand selected atoms
+
+### 9. PLUMED Configuration and Analysis (`9_auto_plumed.py`)
+```bash
+python 9_auto_plumed.py system.pdb npt.gro [--double_funnel] [--other_side]
 ```
 **Input:**
 - Template PDB file (system.pdb)
@@ -187,15 +206,27 @@ python 8_auto_plumed.py system.pdb npt.gro [--double_funnel] [--other_side]
 
 **Output:**
 - Final PLUMED input file (plumed.dat) containing:
-  - Atom definitions
-  - Collective variables
-  - Funnel restraints
+  - Atom definitions and alignments
+  - Collective variables and descriptors
+  - Funnel restraints and wall definitions
   - OPES parameters
-- PyMOL session file for visualization
+  - Coordination numbers and analysis metrics
+- PyMOL visualization session containing:
+  - Molecule representation
+  - Center of mass indication
+  - Principal axes visualization
+  - Funnel and cylinder representations
+  - Virtual atoms for analysis
+
+**Analysis Features:**
+- Principal component analysis of molecular structure
+- Center of mass calculations
+- Radius and height optimizations for funnel shape
+- Coordination number analysis
+- Angle and position restraints
+- Virtual atom placement for path definition
 
 ## Usage Example
-
-Make sure you're in the correct scripts directory before running any commands:
 
 ```bash
 # First, change to the scripts/automated_protocol directory
@@ -217,15 +248,21 @@ python 4_merge_top_files.py
 # 5. Add water model
 python 5_get_water_model.py
 
-# 6. Set up PLUMED
-python 6_plumed_generator_start.py
-python 6_2_renumber.py
+# 6. Perform molecular docking
+python 6_docking.py
 
-# 7. Prepare system
-python 7_auto_prepare.py protein.pdb ligand.pdb topol.top --water_points 3
+# 7. Prepare system (run inside each system folder)
+cd ../../system_preparation/host_guest_folder/
+python ../../scripts/automated_protocol/7_auto_prepare.py protein.pdb ligand.pdb topol.top --water_points 3
 
-# 8. Finalize PLUMED configuration
-python 8_auto_plumed.py system.pdb npt.gro --double_funnel
+# Return to scripts directory for final steps
+cd ../../scripts/automated_protocol/
+
+# 8. Initial PLUMED setup
+python 8_plumed_generator_start.py
+
+# 9. Configure PLUMED and generate analysis
+python 9_auto_plumed.py system.pdb npt.gro --double_funnel
 ```
 
 ## Notes

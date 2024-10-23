@@ -1,0 +1,402 @@
+<ForceField>
+  <Info>
+    <DateGenerated>2024-02-06</DateGenerated>
+  </Info>
+  <AtomTypes>
+    <Type element="C" name="ca" class="ca" mass="12.01"/>
+    <Type element="C" name="za" class="za" mass="12.01"/>
+    <Type element="C" name="zb" class="zb" mass="12.01"/>
+    <Type element="C" name="zc" class="zc" mass="12.01"/>
+    <Type element="C" name="zd" class="zd" mass="12.01"/>
+    <Type element="C" name="ze" class="ze" mass="12.01"/>
+    <Type element="C" name="zf" class="zf" mass="12.01"/>
+    <Type element="C" name="c3" class="c3" mass="12.01"/>
+    <Type element="C" name="zg" class="zg" mass="12.01"/>
+    <Type element="C" name="zh" class="zh" mass="12.01"/>
+    <Type element="C" name="zi" class="zi" mass="12.01"/>
+    <Type element="C" name="zj" class="zj" mass="12.01"/>
+    <Type element="C" name="zk" class="zk" mass="12.01"/>
+    <Type element="N" name="nb" class="nb" mass="14.01"/>
+    <Type element="N" name="zl" class="zl" mass="14.01"/>
+    <Type element="O" name="zm" class="zm" mass="16.0"/>
+    <Type element="O" name="zn" class="zn" mass="16.0"/>
+    <Type element="H" name="ha" class="ha" mass="1.008"/>
+    <Type element="H" name="h4" class="h4" mass="1.008"/>
+    <Type element="H" name="zo" class="zo" mass="1.008"/>
+    <Type element="H" name="hc" class="hc" mass="1.008"/>
+    <Type element="H" name="hx" class="hx" mass="1.008"/>
+    <Type element="H" name="h1" class="h1" mass="1.008"/>
+    <Type element="H" name="hn" class="hn" mass="1.008"/>
+    <Type element="H" name="zp" class="zp" mass="1.008"/>
+  </AtomTypes>
+  <Residues>
+    <Residue name="MOL">
+      <Atom name="C1" type="ca" charge="-0.3167"/>
+      <Atom name="C2" type="ca" charge="-0.1478"/>
+      <Atom name="C3" type="ca" charge="-0.352"/>
+      <Atom name="C4" type="za" charge="-0.3802"/>
+      <Atom name="C5" type="ca" charge="0.2155"/>
+      <Atom name="C6" type="zb" charge="-0.0048"/>
+      <Atom name="C7" type="zc" charge="0.0928"/>
+      <Atom name="C8" type="ca" charge="0.484"/>
+      <Atom name="C9" type="zd" charge="0.3073"/>
+      <Atom name="C10" type="ze" charge="-0.334"/>
+      <Atom name="C11" type="zf" charge="-0.1813"/>
+      <Atom name="C12" type="c3" charge="-0.0174"/>
+      <Atom name="C13" type="c3" charge="-0.1521"/>
+      <Atom name="C14" type="c3" charge="-0.0541"/>
+      <Atom name="C15" type="c3" charge="0.0017"/>
+      <Atom name="C16" type="zg" charge="-0.0165"/>
+      <Atom name="C17" type="zh" charge="-0.0476"/>
+      <Atom name="C18" type="zi" charge="-0.0743"/>
+      <Atom name="C19" type="zj" charge="-0.0427"/>
+      <Atom name="C20" type="zk" charge="0.1335"/>
+      <Atom name="N1" type="nb" charge="-0.5552"/>
+      <Atom name="N2" type="zl" charge="-0.0372"/>
+      <Atom name="O1" type="zm" charge="-0.6368"/>
+      <Atom name="O2" type="zn" charge="-0.318"/>
+      <Atom name="H1" type="ha" charge="0.1992"/>
+      <Atom name="H2" type="ha" charge="0.1655"/>
+      <Atom name="H3" type="ha" charge="0.1657"/>
+      <Atom name="H4" type="ha" charge="0.1244"/>
+      <Atom name="H5" type="h4" charge="0.115"/>
+      <Atom name="H6" type="zo" charge="0.1682"/>
+      <Atom name="H7" type="zo" charge="0.1682"/>
+      <Atom name="H8" type="ha" charge="0.1617"/>
+      <Atom name="H9" type="hc" charge="0.0558"/>
+      <Atom name="H10" type="hc" charge="0.0558"/>
+      <Atom name="H11" type="hc" charge="0.1031"/>
+      <Atom name="H12" type="hc" charge="0.1031"/>
+      <Atom name="H13" type="hx" charge="0.094"/>
+      <Atom name="H14" type="hx" charge="0.094"/>
+      <Atom name="H15" type="hx" charge="0.1012"/>
+      <Atom name="H16" type="hx" charge="0.1012"/>
+      <Atom name="H17" type="hc" charge="0.0986"/>
+      <Atom name="H18" type="hc" charge="0.1015"/>
+      <Atom name="H19" type="hx" charge="0.1067"/>
+      <Atom name="H20" type="h1" charge="0.0921"/>
+      <Atom name="H21" type="h1" charge="0.0921"/>
+      <Atom name="H22" type="h1" charge="0.0921"/>
+      <Atom name="H23" type="h1" charge="0.2311"/>
+      <Atom name="H24" type="hn" charge="0.1967"/>
+      <Atom name="H25" type="zp" charge="0.4466"/>
+      <Bond atomName1="C1" atomName2="C2"/>
+      <Bond atomName1="C1" atomName2="C8"/>
+      <Bond atomName1="C1" atomName2="H1"/>
+      <Bond atomName1="C2" atomName2="C9"/>
+      <Bond atomName1="C2" atomName2="H2"/>
+      <Bond atomName1="C3" atomName2="C5"/>
+      <Bond atomName1="C3" atomName2="C7"/>
+      <Bond atomName1="C3" atomName2="H3"/>
+      <Bond atomName1="C4" atomName2="C6"/>
+      <Bond atomName1="C4" atomName2="C9"/>
+      <Bond atomName1="C4" atomName2="H4"/>
+      <Bond atomName1="C5" atomName2="N1"/>
+      <Bond atomName1="C5" atomName2="H5"/>
+      <Bond atomName1="C6" atomName2="C7"/>
+      <Bond atomName1="C6" atomName2="C8"/>
+      <Bond atomName1="C7" atomName2="C20"/>
+      <Bond atomName1="C8" atomName2="N1"/>
+      <Bond atomName1="C9" atomName2="O2"/>
+      <Bond atomName1="C10" atomName2="C11"/>
+      <Bond atomName1="C10" atomName2="H6"/>
+      <Bond atomName1="C10" atomName2="H7"/>
+      <Bond atomName1="C11" atomName2="C16"/>
+      <Bond atomName1="C11" atomName2="H8"/>
+      <Bond atomName1="C12" atomName2="C14"/>
+      <Bond atomName1="C12" atomName2="C17"/>
+      <Bond atomName1="C12" atomName2="H9"/>
+      <Bond atomName1="C12" atomName2="H10"/>
+      <Bond atomName1="C13" atomName2="C17"/>
+      <Bond atomName1="C13" atomName2="C18"/>
+      <Bond atomName1="C13" atomName2="H11"/>
+      <Bond atomName1="C13" atomName2="H12"/>
+      <Bond atomName1="C14" atomName2="N2"/>
+      <Bond atomName1="C14" atomName2="H13"/>
+      <Bond atomName1="C14" atomName2="H14"/>
+      <Bond atomName1="C15" atomName2="C16"/>
+      <Bond atomName1="C15" atomName2="N2"/>
+      <Bond atomName1="C15" atomName2="H15"/>
+      <Bond atomName1="C15" atomName2="H16"/>
+      <Bond atomName1="C16" atomName2="C17"/>
+      <Bond atomName1="C16" atomName2="H17"/>
+      <Bond atomName1="C17" atomName2="H18"/>
+      <Bond atomName1="C18" atomName2="C20"/>
+      <Bond atomName1="C18" atomName2="N2"/>
+      <Bond atomName1="C18" atomName2="H19"/>
+      <Bond atomName1="C19" atomName2="O2"/>
+      <Bond atomName1="C19" atomName2="H20"/>
+      <Bond atomName1="C19" atomName2="H21"/>
+      <Bond atomName1="C19" atomName2="H22"/>
+      <Bond atomName1="C20" atomName2="O1"/>
+      <Bond atomName1="C20" atomName2="H23"/>
+      <Bond atomName1="N2" atomName2="H24"/>
+      <Bond atomName1="O1" atomName2="H25"/>
+    </Residue>
+  </Residues>
+  <HarmonicBondForce>
+    <Bond class1="ca" class2="ca" length="0.1398" k="316812.48"/>
+    <Bond class1="ca" class2="ha" length="0.10860000000000002" k="331121.75999999995"/>
+    <Bond class1="ca" class2="zd" length="0.1398" k="316812.48"/>
+    <Bond class1="ca" class2="zc" length="0.1398" k="316812.48"/>
+    <Bond class1="za" class2="zb" length="0.1398" k="316812.48"/>
+    <Bond class1="za" class2="zd" length="0.1398" k="316812.48"/>
+    <Bond class1="za" class2="ha" length="0.10860000000000002" k="331121.75999999995"/>
+    <Bond class1="ca" class2="nb" length="0.1339" k="346602.55999999994"/>
+    <Bond class1="ca" class2="h4" length="0.1089" k="326435.67999999993"/>
+    <Bond class1="zb" class2="zc" length="0.1398" k="316812.48"/>
+    <Bond class1="zb" class2="ca" length="0.1398" k="316812.48"/>
+    <Bond class1="zc" class2="zk" length="0.1516" k="209451.03999999998"/>
+    <Bond class1="zd" class2="zn" length="0.137" k="299155.99999999994"/>
+    <Bond class1="ze" class2="zf" length="0.13340000000000002" k="403170.23999999993"/>
+    <Bond class1="ze" class2="zo" length="0.10880000000000001" k="328192.9599999999"/>
+    <Bond class1="zf" class2="zg" length="0.15100000000000002" k="213886.07999999996"/>
+    <Bond class1="zf" class2="ha" length="0.10880000000000001" k="328192.9599999999"/>
+    <Bond class1="c3" class2="c3" length="0.15380000000000002" k="194555.99999999997"/>
+    <Bond class1="c3" class2="zh" length="0.15380000000000002" k="194555.99999999997"/>
+    <Bond class1="c3" class2="hc" length="0.1097" k="314553.11999999994"/>
+    <Bond class1="c3" class2="zi" length="0.15380000000000002" k="194555.99999999997"/>
+    <Bond class1="c3" class2="zl" length="0.1511" k="186271.67999999996"/>
+    <Bond class1="c3" class2="hx" length="0.1091" k="323423.19999999995"/>
+    <Bond class1="c3" class2="zg" length="0.15380000000000002" k="194555.99999999997"/>
+    <Bond class1="zg" class2="zh" length="0.15380000000000002" k="194555.99999999997"/>
+    <Bond class1="zg" class2="hc" length="0.1097" k="314553.11999999994"/>
+    <Bond class1="zh" class2="hc" length="0.1097" k="314553.11999999994"/>
+    <Bond class1="zi" class2="zk" length="0.15380000000000002" k="194555.99999999997"/>
+    <Bond class1="zi" class2="zl" length="0.1511" k="186271.67999999996"/>
+    <Bond class1="zi" class2="hx" length="0.1091" k="323423.19999999995"/>
+    <Bond class1="zj" class2="zn" length="0.1432" k="238320.63999999996"/>
+    <Bond class1="zj" class2="h1" length="0.1097" k="314553.11999999994"/>
+    <Bond class1="zk" class2="zm" length="0.1423" k="245517.11999999994"/>
+    <Bond class1="zk" class2="h1" length="0.1097" k="314553.11999999994"/>
+    <Bond class1="zl" class2="hn" length="0.10300000000000001" k="404090.7199999999"/>
+    <Bond class1="zm" class2="zp" length="0.0973" k="471536.79999999993"/>
+  </HarmonicBondForce>
+  <HarmonicAngleForce>
+    <Angle class1="ca" class2="ca" class3="zd" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="ca" class2="ca" class3="ha" angle="2.092300707290802" k="407.52160000000003"/>
+    <Angle class1="ca" class2="ca" class3="zb" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="ca" class2="ca" class3="nb" angle="2.145707782401829" k="726.3424"/>
+    <Angle class1="ca" class2="ca" class3="ca" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="ca" class2="zd" class3="za" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="ca" class2="zd" class3="zn" angle="2.080432468377241" k="730.5264"/>
+    <Angle class1="ca" class2="ca" class3="h4" angle="2.100329221849976" k="406.68480000000005"/>
+    <Angle class1="ca" class2="zc" class3="zb" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="ca" class2="zc" class3="zk" angle="2.1078341376335517" k="548.9408"/>
+    <Angle class1="za" class2="zb" class3="zc" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="za" class2="zb" class3="ca" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="za" class2="zd" class3="zn" angle="2.080432468377241" k="730.5264"/>
+    <Angle class1="ca" class2="ca" class3="zc" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="ca" class2="nb" class3="ca" angle="2.0458749491877533" k="589.1072"/>
+    <Angle class1="zb" class2="za" class3="zd" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="zb" class2="za" class3="ha" angle="2.092300707290802" k="407.52160000000003"/>
+    <Angle class1="zb" class2="zc" class3="zk" angle="2.1078341376335517" k="548.9408"/>
+    <Angle class1="zb" class2="ca" class3="nb" angle="2.145707782401829" k="726.3424"/>
+    <Angle class1="zc" class2="ca" class3="ha" angle="2.092300707290802" k="407.52160000000003"/>
+    <Angle class1="zc" class2="zb" class3="ca" angle="2.094744168243594" k="575.7184"/>
+    <Angle class1="zc" class2="zk" class3="zi" angle="1.955990492710045" k="545.5936"/>
+    <Angle class1="zc" class2="zk" class3="zm" angle="1.9306832185561273" k="712.9536"/>
+    <Angle class1="zc" class2="zk" class3="h1" angle="1.9121827284849875" k="397.48"/>
+    <Angle class1="zd" class2="ca" class3="ha" angle="2.092300707290802" k="407.52160000000003"/>
+    <Angle class1="zd" class2="za" class3="ha" angle="2.092300707290802" k="407.52160000000003"/>
+    <Angle class1="zd" class2="zn" class3="zj" angle="2.058790385652511" k="553.1247999999999"/>
+    <Angle class1="ze" class2="zf" class3="zg" angle="2.1577505542405895" k="553.1247999999999"/>
+    <Angle class1="ze" class2="zf" class3="ha" angle="2.1019000181767713" k="421.7472"/>
+    <Angle class1="zf" class2="ze" class3="zo" angle="2.1019000181767713" k="421.7472"/>
+    <Angle class1="zf" class2="zg" class3="c3" angle="1.9470893135248741" k="548.104"/>
+    <Angle class1="zf" class2="zg" class3="zh" angle="1.9470893135248741" k="548.104"/>
+    <Angle class1="zf" class2="zg" class3="hc" angle="1.9261453625009421" k="397.48"/>
+    <Angle class1="c3" class2="c3" class3="zl" angle="1.9933405387027237" k="677.808"/>
+    <Angle class1="c3" class2="c3" class3="hx" angle="1.9296360210049308" k="390.78560000000004"/>
+    <Angle class1="c3" class2="zh" class3="c3" angle="1.946216648898877" k="543.0832"/>
+    <Angle class1="c3" class2="zh" class3="zg" angle="1.946216648898877" k="543.0832"/>
+    <Angle class1="c3" class2="zh" class3="hc" angle="1.9163715186897738" k="391.62239999999997"/>
+    <Angle class1="c3" class2="zi" class3="zk" angle="1.946216648898877" k="543.0832"/>
+    <Angle class1="c3" class2="zi" class3="zl" angle="1.9933405387027237" k="677.808"/>
+    <Angle class1="c3" class2="zi" class3="hx" angle="1.9296360210049308" k="390.78560000000004"/>
+    <Angle class1="c3" class2="c3" class3="zh" angle="1.946216648898877" k="543.0832"/>
+    <Angle class1="c3" class2="c3" class3="hc" angle="1.9163715186897738" k="391.62239999999997"/>
+    <Angle class1="c3" class2="zl" class3="c3" angle="1.9139280577369817" k="539.736"/>
+    <Angle class1="c3" class2="zl" class3="zi" angle="1.9139280577369817" k="539.736"/>
+    <Angle class1="c3" class2="zl" class3="hn" angle="1.9217820393709562" k="386.6016"/>
+    <Angle class1="c3" class2="zg" class3="zh" angle="1.946216648898877" k="543.0832"/>
+    <Angle class1="c3" class2="zg" class3="hc" angle="1.9163715186897738" k="391.62239999999997"/>
+    <Angle class1="zg" class2="zf" class3="ha" angle="2.0189968787070405" k="388.2752"/>
+    <Angle class1="zg" class2="c3" class3="zl" angle="1.9933405387027237" k="677.808"/>
+    <Angle class1="zg" class2="c3" class3="hx" angle="1.9296360210049308" k="390.78560000000004"/>
+    <Angle class1="zg" class2="zh" class3="hc" angle="1.9163715186897738" k="391.62239999999997"/>
+    <Angle class1="zh" class2="c3" class3="hc" angle="1.9163715186897738" k="391.62239999999997"/>
+    <Angle class1="zh" class2="c3" class3="zi" angle="1.946216648898877" k="543.0832"/>
+    <Angle class1="zh" class2="zg" class3="hc" angle="1.9163715186897738" k="391.62239999999997"/>
+    <Angle class1="zi" class2="c3" class3="hc" angle="1.9163715186897738" k="391.62239999999997"/>
+    <Angle class1="zi" class2="zk" class3="zm" angle="1.9231783027725518" k="707.9327999999999"/>
+    <Angle class1="zi" class2="zk" class3="h1" angle="1.9121827284849875" k="392.4592"/>
+    <Angle class1="zi" class2="zl" class3="hn" angle="1.9217820393709562" k="386.6016"/>
+    <Angle class1="zk" class2="zi" class3="zl" angle="1.9933405387027237" k="677.808"/>
+    <Angle class1="zk" class2="zi" class3="hx" angle="1.9296360210049308" k="390.78560000000004"/>
+    <Angle class1="zk" class2="zm" class3="zp" angle="1.872040155689118" k="410.03200000000004"/>
+    <Angle class1="nb" class2="ca" class3="h4" angle="2.0251055310890207" k="536.3888"/>
+    <Angle class1="zl" class2="c3" class3="hx" angle="1.8851301250790755" k="502.9168"/>
+    <Angle class1="zl" class2="zi" class3="hx" angle="1.8851301250790755" k="502.9168"/>
+    <Angle class1="zm" class2="zk" class3="h1" angle="1.924400033248948" k="523.0"/>
+    <Angle class1="zn" class2="zj" class3="h1" angle="1.916022452839375" k="522.1632"/>
+    <Angle class1="zo" class2="ze" class3="zo" angle="2.0402898955813713" k="315.47360000000003"/>
+    <Angle class1="hc" class2="c3" class3="hc" angle="1.8776252092954997" k="326.35200000000003"/>
+    <Angle class1="hx" class2="c3" class3="hx" angle="1.9154988540637767" k="324.6784"/>
+    <Angle class1="h1" class2="zj" class3="h1" angle="1.8929841067130497" k="324.6784"/>
+  </HarmonicAngleForce>
+  <PeriodicTorsionForce>
+    <Proper class1="ca" class2="ca" class3="zd" class4="za" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="zd" class4="zn" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="zb" class4="za" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="zb" class4="zc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="nb" class4="ca" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="20.0832" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="ca" class4="zb" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="ca" class4="nb" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zd" class3="za" class4="zb" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zd" class3="za" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zd" class3="zn" class4="zj" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="6.7362400000000004" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zc" class3="zb" class4="za" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zc" class3="zb" class4="ca" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zc" class3="zk" class4="zi" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="1.02508" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zc" class3="zk" class4="zm" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zc" class3="zk" class4="h1" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="za" class2="zb" class3="zc" class4="zk" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="za" class2="zb" class3="ca" class4="nb" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="za" class2="zd" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="za" class2="zd" class3="zn" class4="zj" periodicity1="1" phase1="0.511204251308967" k1="-1.67284136300405" periodicity2="2" phase2="3.1682216003323864" k2="7.073485704127409" periodicity3="3" phase3="3.4492785685997807" k3="0.548208319182326" periodicity4="4" phase4="3.2054888577409635" k4="0.7659170987384194" periodicity5="5" phase5="6.283185307179586" k5="-0.07893761330608211" periodicity6="6" phase6="3.060567398025943" k6="-0.17324203030425991"/>
+    <Proper class1="ca" class2="ca" class3="zc" class4="zb" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="zc" class4="zk" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="nb" class3="ca" class4="zb" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="20.0832" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zb" class2="za" class3="zd" class4="zn" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zb" class2="zc" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zb" class2="zc" class3="zk" class4="zi" periodicity1="1" phase1="1.5206057859328392" k1="-4.72488517536763" periodicity2="2" phase2="4.090552197129726" k2="2.349889110446934" periodicity3="3" phase3="0.21271844552474115" k3="-1.9945118279672671" periodicity4="4" phase4="0.0" k4="-0.6871827547101392" periodicity5="5" phase5="1.7375830950565287" k5="-0.6006531135132442" periodicity6="6" phase6="0.0024637822227031154" k6="-1.4157001433977108"/>
+    <Proper class1="zb" class2="zc" class3="zk" class4="zm" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zb" class2="zc" class3="zk" class4="h1" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zb" class2="ca" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zc" class2="ca" class3="ca" class4="nb" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zc" class2="ca" class3="ca" class4="h4" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zc" class2="zb" class3="za" class4="zd" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zc" class2="zb" class3="za" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zc" class2="zb" class3="ca" class4="nb" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zc" class2="zk" class3="zi" class4="c3" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zc" class2="zk" class3="zi" class4="zl" periodicity1="1" phase1="2.66175015097457" k1="-5.602309085233075" periodicity2="2" phase2="1.8898784791628256" k2="-9.410368558338524" periodicity3="3" phase3="1.8350527430520913" k3="1.7431795565699257" periodicity4="4" phase4="0.0" k4="-0.5955280425441326" periodicity5="5" phase5="4.909752499744472" k5="1.141661181813791" periodicity6="6" phase6="4.144311524861891" k6="-0.6601527673345731"/>
+    <Proper class1="zc" class2="zk" class3="zi" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zc" class2="zk" class3="zm" class4="zp" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6973333333333334" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="ca" class4="zd" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="ca" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zb" class3="za" class4="zd" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zb" class3="za" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="zb" class3="zc" class4="zk" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ca" class2="nb" class3="ca" class4="h4" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="20.0832" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zd" class2="ca" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zd" class2="zn" class3="zj" class4="h1" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="1.6038666666666666" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ze" class2="zf" class3="zg" class4="c3" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ze" class2="zf" class3="zg" class4="zh" periodicity1="1" phase1="4.5151315153036125" k1="-5.078974220383495" periodicity2="2" phase2="0.029988292409198977" k2="-2.1790430707882447" periodicity3="3" phase3="3.3000535053828473" k3="3.9232174723299353" periodicity4="4" phase4="5.611604488419462" k4="0.14196336778274074" periodicity5="5" phase5="3.1047796052246754" k5="-0.6988732850836051" periodicity6="6" phase6="0.7432590240047736" k6="0.32122042594013284"/>
+    <Proper class1="ze" class2="zf" class3="zg" class4="hc" periodicity1="1" phase1="0.0" k1="6.15048" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="3.141592653589793" k3="1.50624" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zf" class2="zg" class3="c3" class4="zl" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zf" class2="zg" class3="c3" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zf" class2="zg" class3="zh" class4="c3" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zf" class2="zg" class3="zh" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="c3" class3="zl" class4="c3" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6527040000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="c3" class3="zl" class4="zi" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6527040000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="c3" class3="zl" class4="hn" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zh" class3="c3" class4="zi" periodicity1="1" phase1="0.0" k1="0.46024000000000004" periodicity2="2" phase2="3.141592653589793" k2="1.21336" periodicity3="3" phase3="0.0" k3="0.5439200000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zh" class3="c3" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.33472" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zh" class3="zg" class4="c3" periodicity1="1" phase1="0.0" k1="0.46024000000000004" periodicity2="2" phase2="3.141592653589793" k2="1.21336" periodicity3="3" phase3="0.0" k3="0.5439200000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zh" class3="zg" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.33472" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zh" class3="c3" class4="c3" periodicity1="1" phase1="0.0" k1="0.46024000000000004" periodicity2="2" phase2="3.141592653589793" k2="1.21336" periodicity3="3" phase3="0.0" k3="0.5439200000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zi" class3="zk" class4="zm" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.87864" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zi" class3="zk" class4="h1" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zi" class3="zl" class4="c3" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6527040000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zi" class3="zl" class4="hn" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="c3" class3="zh" class4="zg" periodicity1="1" phase1="0.0" k1="0.46024000000000004" periodicity2="2" phase2="3.141592653589793" k2="1.21336" periodicity3="3" phase3="0.0" k3="0.5439200000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="c3" class3="zh" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.33472" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zl" class3="c3" class4="zg" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6527040000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zl" class3="c3" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zl" class3="zi" class4="zk" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6527040000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zl" class3="zi" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zg" class3="zf" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="c3" class2="zg" class3="zh" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.33472" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zg" class2="zf" class3="ze" class4="zo" periodicity1="1" phase1="1.8460834870034322" k1="-1.7796026276151666" periodicity2="2" phase2="3.2891267737312613" k2="35.72243546524362" periodicity3="3" phase3="5.850548168928895" k3="2.2613976518791197" periodicity4="4" phase4="3.2220788221004715" k4="-7.035714865350487" periodicity5="5" phase5="5.394535591479817" k5="-0.46585358965698764" periodicity6="6" phase6="6.283185307179586" k6="-0.7721464552109546"/>
+    <Proper class1="zg" class2="c3" class3="zl" class4="zi" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6527040000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zg" class2="c3" class3="zl" class4="hn" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zg" class2="zh" class3="c3" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.33472" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zg" class2="zh" class3="c3" class4="zi" periodicity1="1" phase1="0.0" k1="0.46024000000000004" periodicity2="2" phase2="3.141592653589793" k2="1.21336" periodicity3="3" phase3="0.0" k3="0.5439200000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zh" class2="c3" class3="c3" class4="zl" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.87864" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zh" class2="c3" class3="c3" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zh" class2="c3" class3="zi" class4="zk" periodicity1="1" phase1="0.0" k1="0.46024000000000004" periodicity2="2" phase2="3.141592653589793" k2="1.21336" periodicity3="3" phase3="0.0" k3="0.5439200000000001" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zh" class2="c3" class3="zi" class4="zl" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.87864" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zh" class2="c3" class3="zi" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zh" class2="zg" class3="zf" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zh" class2="zg" class3="c3" class4="zl" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.87864" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zh" class2="zg" class3="c3" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zi" class2="c3" class3="zh" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.33472" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zi" class2="zk" class3="zm" class4="zp" periodicity1="1" phase1="4.377716889262179" k1="4.247453528567212" periodicity2="2" phase2="1.6668677324572074" k2="2.2846369710576524" periodicity3="3" phase3="3.6956105107288764" k3="-0.6656282550246798" periodicity4="4" phase4="2.3794012392051047" k4="-0.18834411563331108" periodicity5="5" phase5="4.160318359997791" k5="0.1512541054236515" periodicity6="6" phase6="2.8256671904589696" k6="0.26339170931707073"/>
+    <Proper class1="zi" class2="zl" class3="c3" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zk" class2="zc" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zk" class2="zi" class3="c3" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.33472" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zk" class2="zi" class3="zl" class4="hn" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="nb" class2="ca" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zl" class2="c3" class3="c3" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zl" class2="c3" class3="zg" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zl" class2="zi" class3="c3" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zl" class2="zi" class3="zk" class4="zm" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="5.4392000000000005" periodicity3="3" phase3="0.0" k3="0.602496" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zl" class2="zi" class3="zk" class4="h1" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zm" class2="zk" class3="zi" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zn" class2="zd" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zn" class2="zd" class3="za" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ha" class2="ca" class3="ca" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ha" class2="ca" class3="ca" class4="h4" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="15.167" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="zo" class2="ze" class3="zf" class4="ha" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="3.141592653589793" k2="27.823600000000003" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="ha" class2="zf" class3="zg" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.0" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="hc" class2="c3" class3="c3" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="hc" class2="c3" class3="zh" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.50208" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="hc" class2="c3" class3="zi" class4="hx" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="hx" class2="c3" class3="zl" class4="hn" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.456056" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="hx" class2="c3" class3="zg" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="hc" class2="zg" class3="zh" class4="hc" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.50208" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="hx" class2="zi" class3="zk" class4="h1" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.6508444444444444" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="hx" class2="zi" class3="zl" class4="hn" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.456056" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Proper class1="h1" class2="zk" class3="zm" class4="zp" periodicity1="1" phase1="0.0" k1="0.0" periodicity2="2" phase2="0.0" k2="0.0" periodicity3="3" phase3="0.0" k3="0.47279200000000005" periodicity4="4" phase4="0.0" k4="0.0" periodicity5="5" phase5="0.0" k5="0.0" periodicity6="6" phase6="0.0" k6="0.0"/>
+    <Improper class1="ca" class2="ca" class3="ca" class4="ha" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="ca" class2="ca" class3="zd" class4="ha" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="ca" class2="ca" class3="zc" class4="ha" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="za" class2="zb" class3="zd" class4="ha" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="ca" class2="ca" class3="nb" class4="h4" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="zb" class2="za" class3="zc" class4="ca" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="zc" class2="ca" class3="zb" class4="zk" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="ca" class2="ca" class3="zb" class4="nb" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="zd" class2="ca" class3="za" class4="zn" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="ze" class2="zf" class3="zo" class4="zo" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+    <Improper class1="zf" class2="ze" class3="zg" class4="ha" periodicity1="2" phase1="3.141592653589793" k1="4.6024"/>
+  </PeriodicTorsionForce>
+  <NonbondedForce coulomb14scale="0.8333333333333334" lj14scale="0.5">
+    <UseAttributeFromResidue name="charge"/>
+    <Atom class="ca" sigma="0.3315212309943831" epsilon="0.4133792"/>
+    <Atom class="za" sigma="0.3315212309943831" epsilon="0.4133792"/>
+    <Atom class="zb" sigma="0.3315212309943831" epsilon="0.4133792"/>
+    <Atom class="zc" sigma="0.3315212309943831" epsilon="0.4133792"/>
+    <Atom class="zd" sigma="0.3315212309943831" epsilon="0.4133792"/>
+    <Atom class="ze" sigma="0.3315212309943831" epsilon="0.4133792"/>
+    <Atom class="zf" sigma="0.3315212309943831" epsilon="0.4133792"/>
+    <Atom class="c3" sigma="0.3397709531243626" epsilon="0.4510352"/>
+    <Atom class="zg" sigma="0.3397709531243626" epsilon="0.4510352"/>
+    <Atom class="zh" sigma="0.3397709531243626" epsilon="0.4510352"/>
+    <Atom class="zi" sigma="0.3397709531243626" epsilon="0.4510352"/>
+    <Atom class="zj" sigma="0.3397709531243626" epsilon="0.4510352"/>
+    <Atom class="zk" sigma="0.3397709531243626" epsilon="0.4510352"/>
+    <Atom class="nb" sigma="0.33841678707278927" epsilon="0.3937144"/>
+    <Atom class="zl" sigma="0.258859531542857" epsilon="10.6495352"/>
+    <Atom class="zm" sigma="0.3242871334030835" epsilon="0.389112"/>
+    <Atom class="zn" sigma="0.3156097798883966" epsilon="0.3037584"/>
+    <Atom class="ha" sigma="0.262547852235958" epsilon="0.0673624"/>
+    <Atom class="h4" sigma="0.25363886505455463" epsilon="0.0673624"/>
+    <Atom class="zo" sigma="0.262547852235958" epsilon="0.0673624"/>
+    <Atom class="hc" sigma="0.2600176998764394" epsilon="0.0870272"/>
+    <Atom class="hx" sigma="0.18874580242521227" epsilon="0.0870272"/>
+    <Atom class="h1" sigma="0.24219972551363267" epsilon="0.0870272"/>
+    <Atom class="hn" sigma="0.11064962079303015" epsilon="0.04184"/>
+    <Atom class="zp" sigma="0.053792464601313685" epsilon="0.019664800000000003"/>
+  </NonbondedForce>
+</ForceField>

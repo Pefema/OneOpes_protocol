@@ -1,0 +1,46 @@
+Resp charges for organic molecule
+
+ &cntrl
+
+ nmol = 1,
+ ihfree = 1,
+ ioutopt = 1,
+ iqopt = 2,
+ qwt =  0.00100,
+
+ &end
+    1.0
+Resp charges for organic molecule
+    1   31
+    6    0
+    6    0
+    6    0
+    6  -99
+    6  -99
+    6  -99
+    6  -99
+    6    0
+    6    0
+    6    9
+    7  -99
+    1    0
+    1   12
+    1    0
+    1   14
+    1    0
+    1   16
+    1  -99
+    1  -99
+    1    0
+    1   20
+    1   20
+    1    0
+    1   23
+    1   23
+    1   23
+    1   23
+    1   23
+    1  -99
+    1  -99
+    1  -99
+

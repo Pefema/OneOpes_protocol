@@ -1,0 +1,9 @@
+addAtomTypes {
+	{ "c"  "C" "sp3" }
+	{ "c3"  "C" "sp3" }
+	{ "h2"  "H" "sp3" }
+	{ "n"  "N" "sp3" }
+	{ "o"  "O" "sp3" }
+}
+loadAmberParams MOL.frcmod
+MOL = loadMol2 MOL-orig.mol2

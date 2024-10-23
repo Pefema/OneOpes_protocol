@@ -1,0 +1,4 @@
+loadAmberParams MOL.frcmod
+A = loadMol2 MOL.mol2
+saveAmberParm A MOL.prmtop MOL.crd
+quit

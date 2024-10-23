@@ -1,0 +1,10 @@
+addAtomTypes {
+	{ "c3"  "C" "sp3" }
+	{ "hc"  "H" "sp3" }
+	{ "za"  "C" "sp3" }
+	{ "zb"  "C" "sp3" }
+	{ "zc"  "N" "sp3" }
+	{ "zd"  "H" "sp3" }
+}
+loadAmberParams MOL.frcmod
+MOL = loadMol2 MOL-orig.mol2

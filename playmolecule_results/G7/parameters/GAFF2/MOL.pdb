@@ -1,0 +1,57 @@
+MODEL        1
+HETATM    1  C1  MOL     1       8.806  38.070  30.713  0.00  0.00      L    C  
+HETATM    2  C2  MOL     1       7.796  38.799  29.788  0.00  0.00      L    C  
+HETATM    3  C3  MOL     1       9.057  36.580  30.345  0.00  0.00      L    C  
+HETATM    4  C4  MOL     1       7.950  38.559  28.260  0.00  0.00      L    C  
+HETATM    5  C5  MOL     1      10.495  36.268  29.850  0.00  0.00      L    C  
+HETATM    6  C6  MOL     1       9.377  38.807  27.687  0.00  0.00      L    C  
+HETATM    7  C7  MOL     1      11.122  37.260  28.822  0.00  0.00      L    C  
+HETATM    8  C8  MOL     1      10.306  37.567  27.543  0.00  0.00      L    C  
+HETATM    9  N1  MOL     1       9.612  36.351  26.979  0.00  0.00      L    N1+
+HETATM   10  H1  MOL     1       9.746  38.633  30.756  0.00  0.00      L    H  
+HETATM   11  H2  MOL     1       8.411  38.112  31.737  0.00  0.00      L    H  
+HETATM   12  H3  MOL     1       6.779  38.503  30.078  0.00  0.00      L    H  
+HETATM   13  H4  MOL     1       7.859  39.877  29.987  0.00  0.00      L    H  
+HETATM   14  H5  MOL     1       8.878  35.973  31.243  0.00  0.00      L    H  
+HETATM   15  H6  MOL     1       8.319  36.222  29.619  0.00  0.00      L    H  
+HETATM   16  H7  MOL     1       7.576  37.565  27.990  0.00  0.00      L    H  
+HETATM   17  H8  MOL     1       7.263  39.256  27.760  0.00  0.00      L    H  
+HETATM   18  H9  MOL     1      11.156  36.232  30.727  0.00  0.00      L    H  
+HETATM   19  H10 MOL     1      10.509  35.253  29.432  0.00  0.00      L    H  
+HETATM   20  H11 MOL     1       9.253  39.244  26.686  0.00  0.00      L    H  
+HETATM   21  H12 MOL     1       9.875  39.600  28.264  0.00  0.00      L    H  
+HETATM   22  H13 MOL     1      11.402  38.195  29.326  0.00  0.00      L    H  
+HETATM   23  H14 MOL     1      12.088  36.834  28.514  0.00  0.00      L    H  
+HETATM   24  H15 MOL     1      11.048  37.862  26.792  0.00  0.00      L    H  
+HETATM   25  H16 MOL     1       9.022  35.918  27.703  0.00  0.00      L    H  
+HETATM   26  H17 MOL     1      10.295  35.647  26.666  0.00  0.00      L    H  
+HETATM   27  H18 MOL     1       9.013  36.603  26.180  0.00  0.00      L    H  
+CONECT    1    2    3   10   11
+CONECT    2    1    4   12   13
+CONECT    3    1    5   14   15
+CONECT    4    2    6   16   17
+CONECT    5    3    7   18   19
+CONECT    6    4    8   20   21
+CONECT    7    5    8   22   23
+CONECT    8    6    7    9   24
+CONECT    9    8   25   26   27
+CONECT   10    1
+CONECT   11    1
+CONECT   12    2
+CONECT   13    2
+CONECT   14    3
+CONECT   15    3
+CONECT   16    4
+CONECT   17    4
+CONECT   18    5
+CONECT   19    5
+CONECT   20    6
+CONECT   21    6
+CONECT   22    7
+CONECT   23    7
+CONECT   24    8
+CONECT   25    9
+CONECT   26    9
+CONECT   27    9
+ENDMDL
+END

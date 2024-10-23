@@ -1,0 +1,236 @@
+
+#############
+Executing parameterize-1 <function main at 0x7fd66dbca8c0> on 2024-02-06 20:02
+ARGS:
+am1_path_length: 15
+dihed_fit_type: iterative
+dihed_num_iterations: 1
+dihed_opt_type: mm
+dihedral_multiplicity: 6
+dihedrals: null
+fit_charges: None
+fit_dihedrals: xTB
+forcefield: GAFF2
+fragmentation: false
+keep_atomnames: false
+keep_charge: null
+min_type: mm
+molecule: /data/in/CB8_xtb.cif
+outdir: /data/out
+qm_basis: 6-311++G**
+qm_max_jobs: 999999
+qm_memory: 12000
+qm_ncpus: 4
+qm_theory: wB97X-D
+scratchdir: /data/scratch
+seed: 20170920
+#############
+2024-02-06 20:02:53,409 - parameterize.cli - INFO - ===== Parameterize =====
+2024-02-06 20:02:53,409 - parameterize.cli - INFO - Citation:
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -     R. Galvelis, S. Doerr, J. M. Damas, M. J. Harvey, and G. De Fabritiis
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -     A Scalable Molecular Force Field Parameterization Method Based on Density Functional Theory and Quantum-Level Machine Learning
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -     J. Chem. Inf. Model. 2019, 59, 8, 3485-3493
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -     DOI: 10.1021/acs.jcim.9b00439
+2024-02-06 20:02:53,409 - parameterize.cli - INFO - === Arguments ===
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -      am1_path_length: 15
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -           calculator: xTB
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -          charge_type: None
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -       dihed_fit_type: iterative
+2024-02-06 20:02:53,409 - parameterize.cli - INFO - dihed_num_iterations: 1
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -       dihed_opt_type: mm
+2024-02-06 20:02:53,409 - parameterize.cli - INFO - dihedral_multiplicity: 6
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -            dihedrals: None
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -             filename: /data/in/CB8_xtb.cif
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -         fit_dihedral: True
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -           fix_charge: None
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -           forcefield: GAFF2
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -       keep_atomnames: False
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -             min_type: mm
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -     no_fragmentation: True
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -             num_fits: 1
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -               outdir: /data/out
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -           parameters: None
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -           qm_options: {'code': 'Psi4', 'theory': 'wB97X-D', 'basis': '6-311++G**', 'environment': 'vacuum'}
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -        queue_options: {'name': 'local', 'ncpus': 4, 'memory': 12000, 'groupname': '233aac81-f2dd-4db3-b9a2-e48f09095941'}
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -                 seed: 20170920
+2024-02-06 20:02:53,409 - parameterize.cli - INFO -     skip_terminal_hs: False
+2024-02-06 20:02:54,245 - root - WARNING - Warning: importing 'simtk.openmm' is deprecated.  Import 'openmm' instead.
+2024-02-06 20:02:54,408 - parameterize.fftype - INFO - Assigning atom types with gaff2
+2024-02-06 20:02:54,415 - parameterize.antechamber - INFO - Running "antechamber"
+2024-02-06 20:02:54,462 - parameterize.antechamber - INFO - Info: The atom type is set to gaff2; the options available to the -at flag are
+2024-02-06 20:02:54,463 - parameterize.antechamber - INFO - Running "parmchk2"
+2024-02-06 20:02:54,955 - parameterize.cli - INFO - === Dihedral angles ===
+2024-02-06 20:02:55,905 - parameterize.cli - INFO - Parameterizable dihedral angles (and their equivalents):
+2024-02-06 20:02:55,905 - parameterize.cli - INFO - No dihedral angles selected
+2024-02-06 20:02:55,905 - parameterize.cli - INFO - Overriding ncpus to 4
+2024-02-06 20:02:55,905 - parameterize.cli - INFO - Overriding memory to 12000
+2024-02-06 20:02:56,070 - parameterize.cli - INFO - Reference method: XTBCalculator
+2024-02-06 20:02:56,082 - parameterize.cli - INFO - === Initial atomic charge fitting ===
+2024-02-06 20:02:56,082 - parameterize.cli - INFO - Method: None
+2024-02-06 20:02:56,082 - parameterize.cli - INFO - Initial atomic charges are taken from /data/in/CB8_xtb.cif
+2024-02-06 20:02:56,083 - parameterize.cli - INFO - MM dipole:  0.055  0.003 -0.057; total:  0.079
+2024-02-06 20:02:56,089 - parameterize.cli - INFO - === Geometry minimization ===
+2024-02-06 20:02:56,089 - parameterize.cli - INFO - Model: MM with the initial force field parameters
+2024-02-06 20:02:59,146 - parameterize.cli - INFO - === Atomic charge fitting ===
+2024-02-06 20:02:59,147 - parameterize.cli - INFO - Method: None
+2024-02-06 20:02:59,147 - parameterize.cli - INFO - Atomic charges are taken from /data/in/CB8_xtb.cif
+2024-02-06 20:02:59,147 - parameterize.cli - INFO - MM dipole:  0.035  0.003 -0.055; total:  0.066
+2024-02-06 20:02:59,149 - parameterize.cli - INFO - 
+2024-02-06 20:02:59,149 - parameterize.cli - INFO - === Molecule MOL, 144 atoms, 168 bonds ===
+2024-02-06 20:02:59,149 - parameterize.cli - INFO - Name (init)  Name (new)  Element  Atomtype  Charge (init)  Charge (fit)  Chiral centers
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          O1          O1        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C1          C1        C         c          0.498         0.498                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          N1          N1        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C2          C2        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C3          C3        C        c3          0.026         0.026                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          N2          N2        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C4          C4        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C5          C5        C         c          0.498         0.498                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          O2          O2        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          N3          N3        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C6          C6        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C7          C7        C        c3          0.026         0.026                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          N4          N4        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C8          C8        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          C9          C9        C         c          0.498         0.498                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          O3          O3        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          N5          N5        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -         C10         C10        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -         C11         C11        C        c3          0.026         0.026                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          N6          N6        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -         C12         C12        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -         C13         C13        C         c          0.498         0.498                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          O4          O4        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,149 - parameterize.cli - INFO -          N7          N7        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C14         C14        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C15         C15        C        c3          0.026         0.026                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -          N8          N8        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C16         C16        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C17         C17        C         c          0.498         0.498                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -          O5          O5        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -          N9          N9        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C18         C18        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C19         C19        C        c3          0.026         0.026                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         N10         N10        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C20         C20        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C21         C21        C         c          0.498         0.498                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -          O6          O6        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         N11         N11        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C22         C22        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C23         C23        C        c3          0.026         0.026                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         N12         N12        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C24         C24        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C25         C25        C         c          0.498         0.498                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -          O7          O7        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         N13         N13        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C26         C26        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C27         C27        C        c3          0.026         0.026                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         N14         N14        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C28         C28        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         C29         C29        C         c          0.498         0.498                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -          O8          O8        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,150 - parameterize.cli - INFO -         N15         N15        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C30         C30        C        c3          0.026         0.026                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C31         C31        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N16         N16        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C32         C32        C        c3         -0.085        -0.085                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N17         N17        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C33         C33        C        c3          0.026         0.026                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C34         C34        C         c          0.498         0.498                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -          O9          O9        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N18         N18        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C35         C35        C        c3          0.026         0.026                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N19         N19        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C36         C36        C         c          0.498         0.498                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         O10         O10        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N20         N20        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C37         C37        C        c3          0.026         0.026                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N21         N21        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C38         C38        C         c          0.498         0.498                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         O11         O11        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N22         N22        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C39         C39        C        c3          0.026         0.026                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N23         N23        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C40         C40        C         c          0.498         0.498                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         O12         O12        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N24         N24        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C41         C41        C        c3          0.026         0.026                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         N25         N25        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         C42         C42        C         c          0.498         0.498                
+2024-02-06 20:02:59,151 - parameterize.cli - INFO -         O13         O13        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         N26         N26        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         C43         C43        C        c3          0.026         0.026                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         N27         N27        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         C44         C44        C         c          0.498         0.498                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         O14         O14        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         N28         N28        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         C45         C45        C        c3          0.026         0.026                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         N29         N29        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         C46         C46        C         c          0.498         0.498                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         O15         O15        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         N30         N30        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         C47         C47        C        c3          0.026         0.026                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         N31         N31        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         C48         C48        C         c          0.498         0.498                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         N32         N32        N         n         -0.110        -0.110                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         O16         O16        O         o         -0.505        -0.505                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H1          H1        H        h2          0.133         0.133                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H2          H2        H        h2          0.077         0.077                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H3          H3        H        h2          0.077         0.077                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H4          H4        H        h2          0.133         0.133                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H5          H5        H        h2          0.133         0.133                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H6          H6        H        h2          0.077         0.077                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H7          H7        H        h2          0.077         0.077                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H8          H8        H        h2          0.133         0.133                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -          H9          H9        H        h2          0.133         0.133                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         H10         H10        H        h2          0.077         0.077                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         H11         H11        H        h2          0.077         0.077                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         H12         H12        H        h2          0.133         0.133                
+2024-02-06 20:02:59,152 - parameterize.cli - INFO -         H13         H13        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H14         H14        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H15         H15        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H16         H16        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H17         H17        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H18         H18        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H19         H19        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H20         H20        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H21         H21        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H22         H22        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H23         H23        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H24         H24        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H25         H25        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H26         H26        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H27         H27        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H28         H28        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H29         H29        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H30         H30        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H31         H31        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H32         H32        H        h2          0.133         0.133                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H33         H33        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H34         H34        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H35         H35        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H36         H36        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H37         H37        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H38         H38        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H39         H39        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H40         H40        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H41         H41        H        h2          0.077         0.077                
+2024-02-06 20:02:59,153 - parameterize.cli - INFO -         H42         H42        H        h2          0.077         0.077                
+2024-02-06 20:02:59,154 - parameterize.cli - INFO -         H43         H43        H        h2          0.077         0.077                
+2024-02-06 20:02:59,154 - parameterize.cli - INFO -         H44         H44        H        h2          0.077         0.077                
+2024-02-06 20:02:59,154 - parameterize.cli - INFO -         H45         H45        H        h2          0.077         0.077                
+2024-02-06 20:02:59,154 - parameterize.cli - INFO -         H46         H46        H        h2          0.077         0.077                
+2024-02-06 20:02:59,154 - parameterize.cli - INFO -         H47         H47        H        h2          0.077         0.077                
+2024-02-06 20:02:59,154 - parameterize.cli - INFO -         H48         H48        H        h2          0.077         0.077                
+2024-02-06 20:02:59,154 - parameterize.cli - INFO - 
+2024-02-06 20:02:59,251 - parameterize.cli - INFO - 
+2024-02-06 20:02:59,251 - parameterize.cli - INFO - == Diagnostic Energies ==
+2024-02-06 20:02:59,251 - parameterize.cli - INFO - 
+2024-02-06 20:02:59,251 - parameterize.cli - INFO - Bond     :      1.19852 kcal/mol
+2024-02-06 20:02:59,251 - parameterize.cli - INFO - Angle    :    162.86001 kcal/mol
+2024-02-06 20:02:59,251 - parameterize.cli - INFO - Dihedral :     84.79367 kcal/mol
+2024-02-06 20:02:59,251 - parameterize.cli - INFO - Improper :     11.00772 kcal/mol
+2024-02-06 20:02:59,251 - parameterize.cli - INFO - Electro  :    111.74834 kcal/mol
+2024-02-06 20:02:59,252 - parameterize.cli - INFO - VdW      :    -49.03584 kcal/mol
+2024-02-06 20:02:59,252 - parameterize.cli - INFO - 
+2024-02-06 20:02:59,252 - parameterize.cli - INFO - 

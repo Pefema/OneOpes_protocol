@@ -1,0 +1,23 @@
+=== Arguments ===
+     am1_path_length: 15
+          calculator: AIMNet2
+         charge_type: None
+      dihed_fit_type: iterative
+dihed_num_iterations: 1
+      dihed_opt_type: mm
+dihedral_multiplicity: 6
+           dihedrals: None
+            filename: /data/in/G3.cif
+        fit_dihedral: True
+          fix_charge: None
+          forcefield: GAFF2
+      keep_atomnames: False
+            min_type: mm
+    no_fragmentation: True
+            num_fits: 1
+              outdir: /data/out
+          parameters: None
+          qm_options: {'code': 'Psi4', 'theory': 'wB97X-D', 'basis': '6-311++G**', 'environment': 'vacuum'}
+       queue_options: {'name': 'local', 'ncpus': 4, 'memory': 12000, 'groupname': '6ff88052-d919-4bd9-8e17-0914f6c517a5'}
+                seed: 20170920
+    skip_terminal_hs: False
