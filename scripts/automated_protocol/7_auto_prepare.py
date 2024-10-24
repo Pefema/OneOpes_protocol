@@ -2,6 +2,7 @@ import os
 import sys
 import subprocess
 import argparse
+import shutil
 
 def run_command(command, error_message, inputs=None):
     print(f"\n{'#'*20} COMMAND START {'#'*20}")
@@ -155,6 +156,46 @@ def select_topology_file(subfolder_path):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+def copy_mdp_files(subfolder_path):
+    """
+    Copy all MDP files from system_parameters/mdp_files/ to the specified subfolder.
+    
+    Args:
+        subfolder_path (str): Path to the subfolder where MDP files should be copied
+    
+    Returns:
+        bool: True if successful, False if there was an error
+    """
+    # Get the absolute path to the MDP files directory
+    mdp_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_parameters', 'mdp_files'))
+    
+    if not os.path.exists(mdp_dir):
+        print(f"Error: MDP files directory not found at {mdp_dir}")
+        return False
+    
+    try:
+        # Get all .mdp files from the directory
+        mdp_files = [f for f in os.listdir(mdp_dir) if f.endswith('.mdp')]
+        
+        if not mdp_files:
+            print(f"Warning: No MDP files found in {mdp_dir}")
+            return False
+        
+        # Copy each MDP file to the subfolder
+        for mdp_file in mdp_files:
+            src_path = os.path.join(mdp_dir, mdp_file)
+            dst_path = os.path.join(subfolder_path, mdp_file)
+            
+            # Copy the file and preserve metadata
+            shutil.copy2(src_path, dst_path)
+            print(f"Copied {mdp_file} to {subfolder_path}")
+        
+        return True
+        
+    except Exception as e:
+        print(f"Error copying MDP files: {str(e)}")
+        return False
+
 def process_subfolders(base_folder, water_points):
     prep_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation'))
     base_dir = os.path.join(prep_dir, base_folder)
@@ -175,6 +216,12 @@ def process_subfolders(base_folder, water_points):
         subfolder_path = os.path.join(base_dir, subfolder)
         print(f"\nProcessing subfolder: {subfolder}")
         
+        # Copy MDP files to the subfolder
+        print("Copying MDP files...")
+        if not copy_mdp_files(subfolder_path):
+            print(f"Warning: Failed to copy MDP files to {subfolder}. Skipping this subfolder...")
+            continue
+            
         # Extract guest number from folder name (assuming format CB8_GX)
         try:
             guest_number = subfolder.split('_G')[-1]
