@@ -156,18 +156,19 @@ def select_topology_file(subfolder_path):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-def copy_mdp_files(subfolder_path):
+def copy_mdp_files(subfolder_path, script_dir):
     """
     Copy all MDP files from system_parameters/mdp_files/ to the specified subfolder.
     
     Args:
         subfolder_path (str): Path to the subfolder where MDP files should be copied
+        script_dir (str): Absolute path to the directory containing the script
     
     Returns:
         bool: True if successful, False if there was an error
     """
-    # Get the absolute path to the MDP files directory
-    mdp_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_parameters', 'mdp_files'))
+    # Get the absolute path to the MDP files directory using script_dir as reference
+    mdp_dir = os.path.abspath(os.path.join(script_dir, '..', '..', 'system_parameters', 'mdp_files'))
     
     if not os.path.exists(mdp_dir):
         print(f"Error: MDP files directory not found at {mdp_dir}")
@@ -197,7 +198,10 @@ def copy_mdp_files(subfolder_path):
         return False
 
 def process_subfolders(base_folder, water_points):
-    prep_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation'))
+    # Store the script directory at the start
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    prep_dir = os.path.abspath(os.path.join(script_dir, '..', '..', 'system_preparation'))
     base_dir = os.path.join(prep_dir, base_folder)
     
     # Get all subfolders
@@ -216,9 +220,9 @@ def process_subfolders(base_folder, water_points):
         subfolder_path = os.path.join(base_dir, subfolder)
         print(f"\nProcessing subfolder: {subfolder}")
         
-        # Copy MDP files to the subfolder
+        # Copy MDP files to the subfolder using script_dir
         print("Copying MDP files...")
-        if not copy_mdp_files(subfolder_path):
+        if not copy_mdp_files(subfolder_path, script_dir):
             print(f"Warning: Failed to copy MDP files to {subfolder}. Skipping this subfolder...")
             continue
             
