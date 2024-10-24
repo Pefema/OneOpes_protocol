@@ -1,5 +1,7 @@
 import os
 import sys
+import shutil
+
 def get_water_model_content(water_model):
     water_model_path = os.path.abspath(os.path.join(
         os.getcwd(), '..', '..', 'system_parameters', 'water_force_fields',
@@ -10,9 +12,30 @@ def get_water_model_content(water_model):
         sys.exit(1)
     with open(water_model_path, 'r') as f:
         return f.read().strip()
-def process_topol_file(file_path, water_model_content, water_model):
+
+def get_water_model_itp(water_model):
+    water_model_itp = os.path.abspath(os.path.join(
+        os.getcwd(), '..', '..', 'system_parameters', 'water_force_fields',
+        water_model, f'{water_model}.itp'
+    ))
+    if not os.path.exists(water_model_itp):
+        print(f"Error: Water model ITP file not found at {water_model_itp}")
+        sys.exit(1)
+    return water_model_itp
+
+def process_topol_file(file_path, water_model_content, water_model, water_model_itp):
+    # First copy the water model ITP file to the current directory
+    target_itp = os.path.join(os.path.dirname(file_path), f'{water_model}.itp')
+    try:
+        shutil.copy2(water_model_itp, target_itp)
+        print(f"Copied {water_model}.itp to {os.path.dirname(file_path)}")
+    except Exception as e:
+        print(f"Error copying ITP file: {str(e)}")
+        return
+
     with open(file_path, 'r') as f:
         content = f.readlines()
+
     atomtypes_section = False
     insert_index_atomtypes = -1
     insert_index_system = -1
@@ -25,17 +48,21 @@ def process_topol_file(file_path, water_model_content, water_model):
         elif '[ system ]' in line:
             insert_index_system = i
             break
+
     if insert_index_atomtypes == -1 or insert_index_system == -1:
         print(f"Error: Could not find appropriate insertion points in {file_path}")
         return
+
     # Insert water model atomtypes
     content.insert(insert_index_atomtypes, f"{water_model_content}\n")
     # Insert water model include statement
     content.insert(insert_index_system, f'\n#include "{water_model}.itp"\n\n')
+
     output_file = os.path.join(os.path.dirname(file_path), 'topol_water.top')
     with open(output_file, 'w') as f:
         f.writelines(content)
     print(f"Created {output_file}")
+
 def select_water_model():
     water_models_dir = os.path.abspath(os.path.join(
         os.getcwd(), '..', '..', 'system_parameters', 'water_force_fields'
@@ -45,9 +72,11 @@ def select_water_model():
     if not water_models:
         print("Error: No water models found.")
         sys.exit(1)
+
     print("Available water models:")
     for i, model in enumerate(water_models, 1):
         print(f"{i}. {model}")
+
     while True:
         try:
             choice = int(input("Enter the number of the water model you want to use: "))
@@ -57,6 +86,7 @@ def select_water_model():
                 print("Invalid choice. Please try again.")
         except ValueError:
             print("Invalid input. Please enter a number.")
+
 def select_input_folder():
     prep_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation'))
     folders = [d for d in os.listdir(prep_dir)
@@ -64,9 +94,11 @@ def select_input_folder():
     if not folders:
         print("Error: No folders found in system_preparation directory.")
         sys.exit(1)
+
     print("\nAvailable input folders:")
     for i, folder in enumerate(folders, 1):
         print(f"{i}. {folder}")
+
     while True:
         try:
             choice = int(input("Enter the number of the input folder you want to process: "))
@@ -76,19 +108,28 @@ def select_input_folder():
                 print("Invalid choice. Please try again.")
         except ValueError:
             print("Invalid input. Please enter a number.")
+
 def main():
     water_model = select_water_model()
     input_folder = select_input_folder()
+    
+    # Get both the atomtypes content and the ITP file path
     water_model_content = get_water_model_content(water_model)
+    water_model_itp = get_water_model_itp(water_model)
+
     prep_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation', input_folder))
     if not os.path.exists(prep_dir):
         print(f"Error: Input folder not found at {prep_dir}")
         sys.exit(1)
+
     for root, dirs, files in os.walk(prep_dir):
         for file in files:
             if file == 'topol.top':
                 file_path = os.path.join(root, file)
-                process_topol_file(file_path, water_model_content, water_model)
-    print(f"\nProcessing complete. Water model {water_model} has been added to all topol.top files in {input_folder}.")
+                process_topol_file(file_path, water_model_content, water_model, water_model_itp)
+
+    print(f"\nProcessing complete. Water model {water_model} has been added to all topol.top files")
+    print(f"and {water_model}.itp has been copied to all relevant directories in {input_folder}.")
+
 if __name__ == "__main__":
     main()
