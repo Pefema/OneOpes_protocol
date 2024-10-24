@@ -1,13 +1,110 @@
+import os
 import sys
+import subprocess
 import numpy as np
 from Bio import PDB
 import argparse
-import os
 import pymol
 from pymol import cmd, stored
 from scipy.linalg import svd
 from itertools import combinations
 import re
+
+def select_input_folder():
+    """Select input folder from system_preparation directory."""
+    prep_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation'))
+    folders = [d for d in os.listdir(prep_dir)
+               if os.path.isdir(os.path.join(prep_dir, d))]
+    
+    if not folders:
+        print("Error: No folders found in system_preparation directory.")
+        return None
+    
+    print("\nAvailable input folders:")
+    for i, folder in enumerate(folders, 1):
+        print(f"{i}. {folder}")
+    
+    while True:
+        try:
+            choice = int(input("Enter the number of the folder you want to process: "))
+            if 1 <= choice <= len(folders):
+                return folders[choice - 1]
+            print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def get_file_patterns(base_dir):
+    """Get file patterns from user based on files in first subfolder."""
+    # Get first subfolder
+    subfolders = [d for d in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, d))]
+    if not subfolders:
+        print("Error: No subfolders found")
+        return None, None
+    
+    first_subfolder = os.path.join(base_dir, subfolders[0])
+    print(f"\nLooking at files in: {subfolders[0]}")
+    
+    # Get all PDB files
+    pdb_files = [f for f in os.listdir(first_subfolder) if f.endswith('.pdb') 
+                 and not f.endswith('_not_docked.pdb')]
+    
+    # Get all GRO files
+    gro_files = [f for f in os.listdir(first_subfolder) if f.endswith('.gro')]
+    
+    if not pdb_files or not gro_files:
+        print("Error: Required files not found in first subfolder")
+        return None, None
+    
+    # Let user select PDB file pattern
+    print("\nAvailable PDB files:")
+    for i, file in enumerate(pdb_files, 1):
+        print(f"{i}. {file}")
+    
+    while True:
+        try:
+            choice = int(input("Select the PDB file to use as pattern: "))
+            if 1 <= choice <= len(pdb_files):
+                pdb_pattern = pdb_files[choice - 1]
+                break
+            print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    
+    # Let user select GRO file pattern
+    print("\nAvailable GRO files:")
+    for i, file in enumerate(gro_files, 1):
+        print(f"{i}. {file}")
+    
+    while True:
+        try:
+            choice = int(input("Select the GRO file to use as pattern: "))
+            if 1 <= choice <= len(gro_files):
+                gro_pattern = gro_files[choice - 1]
+                break
+            print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    
+    print(f"\nSelected patterns:")
+    print(f"PDB pattern: {pdb_pattern}")
+    print(f"GRO pattern: {gro_pattern}")
+    
+    return pdb_pattern, gro_pattern
+
+def find_required_files(subfolder_path, pdb_pattern, gro_pattern):
+    """Find the required files using the selected patterns."""
+    pdb_path = os.path.join(subfolder_path, pdb_pattern)
+    gro_path = os.path.join(subfolder_path, gro_pattern)
+    
+    if not os.path.exists(pdb_path):
+        print(f"PDB file not found: {pdb_pattern}")
+        return None, None
+    
+    if not os.path.exists(gro_path):
+        print(f"GRO file not found: {gro_pattern}")
+        return None, None
+    
+    return pdb_path, gro_path
 
 def calculate_center_of_mass(coords, masses):
     total_mass = np.sum(masses)
@@ -112,7 +209,9 @@ def create_virtual_atoms(com, principal_axis, double_funnel=False, other_side=Fa
     return virtual_atoms
 
 def visualize_molecule(pdb_file, com, principal_axis, max_atom_distance, avg_radius, double_funnel, other_side):
-    pymol.finish_launching()
+    """Create and save PyMOL visualization without displaying GUI"""
+    # Initialize PyMOL in quiet mode without GUI
+    pymol.finish_launching(['pymol', '-cq'])
 
     cmd.load(pdb_file, "molecule")
     cmd.hide("everything", "molecule")
@@ -149,9 +248,15 @@ def visualize_molecule(pdb_file, com, principal_axis, max_atom_distance, avg_rad
     cmd.label("com", '"Center of Mass"')
     cmd.zoom("all", 1.2)
 
+    # Save session and clean up
     session_file = os.path.splitext(pdb_file)[0] + "_visualization.pse"
     cmd.save(session_file)
     print(f"PyMOL session saved as: {session_file}")
+    
+    # Clean up PyMOL
+    cmd.delete('all')
+    cmd.reinitialize()
+    
     return virtual_atoms, x_formula, y_formula, r_min, rmax, max_h
 
 def analyze_molecule(pdb_file, double_funnel, other_side):
@@ -341,16 +446,87 @@ def write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel, x_formu
         f.write("ENDPLUMED")
 
     print(f"PLUMED input file saved as: {output_file}")
+
+def process_subfolder(subfolder_path, pdb_pattern, gro_pattern, double_funnel, other_side):
+    """Process a single subfolder."""
+    print(f"\nProcessing subfolder: {os.path.basename(subfolder_path)}")
+    
+    # Find required files
+    pdb_file, gro_file = find_required_files(subfolder_path, pdb_pattern, gro_pattern)
+    
+    if not pdb_file or not gro_file:
+        print(f"Skipping {os.path.basename(subfolder_path)}: Required files not found")
+        return False
+    
+    # Store current directory and change to working directory
+    original_dir = os.getcwd()
+    os.chdir(subfolder_path)
+    
+    try:
+        # Process the files
+        virtual_atoms, x_formula, y_formula, r_min, rmax, max_h = analyze_molecule(
+            pdb_file, double_funnel, other_side)
+        write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel,
+                          x_formula, y_formula, r_min, rmax, max_h)
+        print(f"Processing completed successfully for {os.path.basename(subfolder_path)}")
+        return True
+    except Exception as e:
+        print(f"Error processing {os.path.basename(subfolder_path)}: {str(e)}")
+        print(f"Full error details:")
+        import traceback
+        traceback.print_exc()
+        return False
+    finally:
+        # Return to original directory
+        os.chdir(original_dir)
+
 def main():
-    parser = argparse.ArgumentParser(description="Analyze a molecule from a PDB file and create a PLUMED input file")
-    parser.add_argument("pdb_file", help="Path to the PDB file")
-    parser.add_argument("gro_file", help="Path to the GRO file")
-    parser.add_argument("--double_funnel", action="store_true", help="Create a double funnel (default is single funnel)")
-    parser.add_argument("--other_side", action="store_true", help="Flip the direction of the Z-axis and funnel")
+    parser = argparse.ArgumentParser(description="Analyze molecules and create PLUMED input files for all systems")
+    parser.add_argument("--double_funnel", action="store_true", 
+                       help="Create a double funnel (default is single funnel)")
+    parser.add_argument("--other_side", action="store_true", 
+                       help="Flip the direction of the Z-axis and funnel")
     args = parser.parse_args()
 
-    virtual_atoms, x_formula, y_formula, r_min, rmax, max_h = analyze_molecule(args.pdb_file, args.double_funnel, args.other_side)
-    write_plumed_input(args.pdb_file, args.gro_file, virtual_atoms, args.double_funnel, x_formula, y_formula, r_min, rmax, max_h)
+    # Get the base directory path
+    prep_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation'))
+    
+    # Select the input folder
+    input_folder = select_input_folder()
+    if not input_folder:
+        print("No valid input folder selected. Exiting.")
+        return
+    
+    base_dir = os.path.join(prep_dir, input_folder)
+    print(f"\nProcessing all subfolders in: {base_dir}")
+    
+    # Get file patterns from user
+    pdb_pattern, gro_pattern = get_file_patterns(base_dir)
+    if not pdb_pattern or not gro_pattern:
+        print("Failed to get file patterns. Exiting.")
+        return
+    
+    # Process all subfolders
+    subfolders = [d for d in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, d))]
+    if not subfolders:
+        print("Error: No subfolders found")
+        return
+    
+    successful = 0
+    failed = 0
+    
+    for subfolder in sorted(subfolders):
+        subfolder_path = os.path.join(base_dir, subfolder)
+        if process_subfolder(subfolder_path, pdb_pattern, gro_pattern, 
+                           args.double_funnel, args.other_side):
+            successful += 1
+        else:
+            failed += 1
+    
+    print("\nProcessing Summary:")
+    print(f"Total subfolders processed: {len(subfolders)}")
+    print(f"Successful: {successful}")
+    print(f"Failed: {failed}")
 
 if __name__ == "__main__":
     main()
