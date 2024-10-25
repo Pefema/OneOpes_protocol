@@ -10,6 +10,48 @@ from scipy.linalg import svd
 from itertools import combinations
 import re
 
+def get_last_atom_number(filename):
+    """Get the highest HETATM number from a PDB file."""
+    last_number = 0
+    with open(filename, 'r') as file:
+        for line in file:
+            if line.startswith('HETATM'):
+                try:
+                    number = int(line[6:11].strip())
+                    last_number = max(last_number, number)
+                except ValueError:
+                    continue
+    return last_number
+
+def update_atom_numbers(input_filename, output_filename, increment):
+    """Update atom numbers in PDB file by adding increment, excluding CONECT rows."""
+    with open(input_filename, 'r') as infile, open(output_filename, 'w') as outfile:
+        for line in infile:
+            # Skip CONECT lines completely
+            if line.startswith('CONECT'):
+                continue
+            
+            if line.startswith('HETATM'):
+                # Parse the current atom number
+                current_num = int(line[6:11].strip())
+                # Calculate new number
+                new_num = current_num + increment
+                # Create new line preserving exact spacing
+                updated_line = f"{line[:6]}{new_num:5d}{line[11:]}"
+                outfile.write(updated_line)
+            else:
+                outfile.write(line)
+
+def find_guest_pdb(subfolder_name):
+    """Extract guest number and construct guest PDB filename."""
+    try:
+        # Split the folder name by '_G' and take the last part as the guest number
+        guest_number = subfolder_name.split('_G')[-1]
+        return f"G{guest_number}.pdb"
+    except IndexError:
+        print(f"Warning: Folder name {subfolder_name} doesn't match expected pattern HOST_GX")
+        return None
+
 def select_input_folder():
     """Select input folder from system_preparation directory."""
     prep_dir = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'system_preparation'))
@@ -55,16 +97,16 @@ def get_file_patterns(base_dir):
         print("Error: Required files not found in first subfolder")
         return None, None
     
-    # Let user select PDB file pattern
+    # Let user select PDB file
     print("\nAvailable PDB files:")
     for i, file in enumerate(pdb_files, 1):
         print(f"{i}. {file}")
     
     while True:
         try:
-            choice = int(input("Select the PDB file to use as pattern: "))
+            choice = int(input("Select the PDB file to use as HOST: "))
             if 1 <= choice <= len(pdb_files):
-                pdb_pattern = pdb_files[choice - 1]
+                pdb_host = pdb_files[choice - 1]
                 break
             print("Invalid choice. Please try again.")
         except ValueError:
@@ -77,7 +119,7 @@ def get_file_patterns(base_dir):
     
     while True:
         try:
-            choice = int(input("Select the GRO file to use as pattern: "))
+            choice = int(input("Select the GRO file to use to generate the plumed.dat file: "))
             if 1 <= choice <= len(gro_files):
                 gro_pattern = gro_files[choice - 1]
                 break
@@ -85,19 +127,19 @@ def get_file_patterns(base_dir):
         except ValueError:
             print("Invalid input. Please enter a number.")
     
-    print(f"\nSelected patterns:")
-    print(f"PDB pattern: {pdb_pattern}")
-    print(f"GRO pattern: {gro_pattern}")
+    print(f"\nSelected files:")
+    print(f"PDB host: {pdb_host}")
+    print(f"GRO file: {gro_pattern}")
     
-    return pdb_pattern, gro_pattern
+    return pdb_host, gro_pattern
 
-def find_required_files(subfolder_path, pdb_pattern, gro_pattern):
-    """Find the required files using the selected patterns."""
-    pdb_path = os.path.join(subfolder_path, pdb_pattern)
+def find_required_files(subfolder_path, pdb_host, gro_pattern):
+    """Find the required files using the selected files."""
+    pdb_path = os.path.join(subfolder_path, pdb_host)
     gro_path = os.path.join(subfolder_path, gro_pattern)
     
     if not os.path.exists(pdb_path):
-        print(f"PDB file not found: {pdb_pattern}")
+        print(f"PDB file not found: {pdb_host}")
         return None, None
     
     if not os.path.exists(gro_path):
@@ -397,7 +439,7 @@ def write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel, x_formu
         f.write(f"WO: GROUP ATOMS={first_water_oxygen}-{last_water_oxygen}:{water_model+1}    #water oxygen atoms\n\n")
 
         f.write("WHOLEMOLECULES ENTITY0=HOST\n")
-        f.write(f"FIT_TO_TEMPLATE STRIDE=1 REFERENCE={os.path.basename(pdb_file)} TYPE=OPTIMAL #coordinates alignment\n")
+        f.write(f"FIT_TO_TEMPLATE STRIDE=1 REFERENCE=host_template.pdb TYPE=OPTIMAL #coordinates alignment\n")
         f.write("lig: CENTER ATOMS=LIGC\n")
         
         # Write virtual atoms
@@ -447,12 +489,12 @@ def write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel, x_formu
 
     print(f"PLUMED input file saved as: {output_file}")
 
-def process_subfolder(subfolder_path, pdb_pattern, gro_pattern, double_funnel, other_side):
+def process_subfolder(subfolder_path, pdb_host, gro_pattern, double_funnel, other_side):
     """Process a single subfolder."""
     print(f"\nProcessing subfolder: {os.path.basename(subfolder_path)}")
     
     # Find required files
-    pdb_file, gro_file = find_required_files(subfolder_path, pdb_pattern, gro_pattern)
+    pdb_file, gro_file = find_required_files(subfolder_path, pdb_host, gro_pattern)
     
     if not pdb_file or not gro_file:
         print(f"Skipping {os.path.basename(subfolder_path)}: Required files not found")
@@ -463,13 +505,27 @@ def process_subfolder(subfolder_path, pdb_pattern, gro_pattern, double_funnel, o
     os.chdir(subfolder_path)
     
     try:
-        # Process the files
+        # Process the files using original functionality
         virtual_atoms, x_formula, y_formula, r_min, rmax, max_h = analyze_molecule(
             pdb_file, double_funnel, other_side)
         write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel,
                           x_formula, y_formula, r_min, rmax, max_h)
+        
+        # Additional renumbering functionality
+        subfolder_name = os.path.basename(subfolder_path)
+        guest_pdb = find_guest_pdb(subfolder_name)
+        if guest_pdb and os.path.exists(os.path.join(subfolder_path, guest_pdb)):
+            print(f"\nGenerating template PDB file...")
+            last_atom_number = get_last_atom_number(guest_pdb)
+            template_pdb = "host_template.pdb"
+            update_atom_numbers(pdb_file, template_pdb, last_atom_number)
+            print(f"Created template PDB file: {template_pdb}")
+        else:
+            print(f"\nSkipping renumbering: Guest PDB file not found")
+        
         print(f"Processing completed successfully for {os.path.basename(subfolder_path)}")
         return True
+        
     except Exception as e:
         print(f"Error processing {os.path.basename(subfolder_path)}: {str(e)}")
         print(f"Full error details:")
@@ -486,6 +542,8 @@ def main():
                        help="Create a double funnel (default is single funnel)")
     parser.add_argument("--other_side", action="store_true", 
                        help="Flip the direction of the Z-axis and funnel")
+    parser.add_argument("--skip_renumber", action="store_true",
+                       help="Skip the generation of template PDB files")
     args = parser.parse_args()
 
     # Get the base directory path
@@ -501,8 +559,8 @@ def main():
     print(f"\nProcessing all subfolders in: {base_dir}")
     
     # Get file patterns from user
-    pdb_pattern, gro_pattern = get_file_patterns(base_dir)
-    if not pdb_pattern or not gro_pattern:
+    pdb_host, gro_pattern = get_file_patterns(base_dir)
+    if not pdb_host or not gro_pattern:
         print("Failed to get file patterns. Exiting.")
         return
     
@@ -517,7 +575,7 @@ def main():
     
     for subfolder in sorted(subfolders):
         subfolder_path = os.path.join(base_dir, subfolder)
-        if process_subfolder(subfolder_path, pdb_pattern, gro_pattern, 
+        if process_subfolder(subfolder_path, pdb_host, gro_pattern, 
                            args.double_funnel, args.other_side):
             successful += 1
         else:
