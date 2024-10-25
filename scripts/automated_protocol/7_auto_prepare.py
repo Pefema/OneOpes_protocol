@@ -226,12 +226,12 @@ def process_subfolders(base_folder, water_points):
             print(f"Warning: Failed to copy MDP files to {subfolder}. Skipping this subfolder...")
             continue
             
-        # Extract guest number from folder name (assuming format CB8_GX)
+        # Extract guest number from folder name (assuming format hostname_GX)
         try:
             guest_number = subfolder.split('_G')[-1]
             guest_file = f"G{guest_number}.pdb"
         except IndexError:
-            print(f"Warning: Folder name {subfolder} doesn't match expected pattern CB8_GX")
+            print(f"Warning: Folder name {subfolder} doesn't match expected pattern hostname_GX")
             continue
         
         # Check if required files exist

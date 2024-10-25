@@ -436,7 +436,7 @@ def write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel, x_formu
     output_file = "plumed.dat"
     
     (atoms_1mol, first_heavy_atom_1mol, last_heavy_atom_1mol, 
-     first_atom_2cb8, last_atom_2cb8, 
+     first_atom_2hostmol, last_atom_2hostmol, 
      first_water_oxygen, last_water_oxygen, water_model) = parse_gro_file(gro_file)
     
     furthest_pair = find_furthest_pair(atoms_1mol)
@@ -447,7 +447,7 @@ def write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel, x_formu
     last_atom_lig = selected_atoms[-1][1]
     with open(output_file, 'w') as f:
         f.write("# --- (1) ATOMS DEFINITIONS and ALIGNMENT ---\n\n")
-        f.write(f"HOST: GROUP ATOMS={first_atom_2cb8}-{last_atom_2cb8}      #host atoms\n")
+        f.write(f"HOST: GROUP ATOMS={first_atom_2hostmol}-{last_atom_2hostmol}      #host atoms\n")
         f.write(f"LIGC: GROUP ATOMS={first_heavy_atom_1mol}-{last_heavy_atom_1mol}  #heavy atoms in the ligand\n")
         for i, atom in enumerate(selected_atoms, start=1):
             f.write(f"l{i}: GROUP ATOMS={atom[1]}             #ligand selected atoms\n")
