@@ -16,16 +16,32 @@ This pipeline automates the following processes:
 
 ## Prerequisites
 
-### Required Software
-- GROMACS (with MPI support)
+### Conda Environment
+A conda environment file (`environment.yml`) is provided to replicate the exact environment used for this pipeline. Create the environment using:
+
+```bash
+conda env create -f environment.yml
+```
+
+This will create a new environment called `OneOpes` with all required Python packages and dependencies.
+
+### Additional Required Software
+The following software must be installed separately and added to your system PATH:
+- GROMACS with MPI support (gmx_mpi)
+- PLUMED (version 2.9 or higher)
 - Gaussian16
-- PLUMED
-- AmberTools
+- Any additional external dependencies required by your specific system
+
+### Required Software (included in conda environment)
 - Python 3.7+
 - PyMOL
 - BioPython
 - AutoDock Vina
 - MGLTools
+- AmberTools
+- RDKit
+- MDAnalysis
+- Numpy/Scipy/Pandas
 
 ## Directory Structure
 
@@ -252,3 +268,4 @@ python 8_auto_plumed.py system.pdb npt.gro --double_funnel
 - Each script includes interactive prompts for necessary user input
 - The pipeline is designed for host-guest systems but can be adapted for other cases
 - All relative paths in scripts use `../../` to reference directories outside of scripts/automated_protocol/
+- Ensure all external dependencies (GROMACS, PLUMED, etc.) are properly installed and accessible in your PATH before running the pipeline
