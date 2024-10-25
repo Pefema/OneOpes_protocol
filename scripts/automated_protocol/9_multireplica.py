@@ -253,8 +253,12 @@ def update_temp_max(content: str, temp: int) -> str:
 
 def setup_replica(setup: ReplicaSetup, replica_num: int, content: str, 
                  temperature: Optional[int] = None) -> str:
+    # First get the base content with the initial OPES definition
     if replica_num == 0:
-        return content
+        return create_base_plumed_content(setup)
+    
+    # For other replicas, start with the base content and add modifications
+    base_content = create_base_plumed_content(setup)
     
     # Maintain a list of all previous modifications
     modifications = []
@@ -293,22 +297,22 @@ def setup_replica(setup: ReplicaSetup, replica_num: int, content: str,
                 base_args += ",ene"
             base_args += ",cosang,L1,L2,L3,L4,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11"
             
-            content = update_print_line(content, f"{base_args},{','.join(bias_list)}")
+            base_content = update_print_line(base_content, f"{base_args},{','.join(bias_list)}")
     
     # Apply all modifications
-    content = content.replace("STATE_RFILE=compressed.Kernels.data", 
-                            "STATE_RFILE=compressed_Kernels.data")
+    final_content = base_content.replace("STATE_RFILE=compressed.Kernels.data", 
+                                       "STATE_RFILE=compressed_Kernels.data")
     for mod in modifications:
-        content = insert_content(content, mod)
+        final_content = insert_content(final_content, mod)
     
     # Add temperature-dependent modifications
     if temperature and replica_num >= 4:
-        if "ecv: ECV_MULTITHERMAL" not in content:
-            content = insert_ecv_opes(content, temperature)
+        if "ecv: ECV_MULTITHERMAL" not in final_content:
+            final_content = insert_ecv_opes(final_content, temperature)
         else:
-            content = update_temp_max(content, temperature)
+            final_content = update_temp_max(final_content, temperature)
     
-    return content
+    return final_content
 
 def setup_replica_folder(setup: ReplicaSetup, replica_num: int, 
                         temperature: Optional[int] = None,
