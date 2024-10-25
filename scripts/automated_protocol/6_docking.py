@@ -102,7 +102,7 @@ def read_pdbqt_coordinates(pdbqt_file):
                 coords.append([x, y, z])
     return np.array(coords)
 
-def calculate_box(pdbqt_file, margin=5.0):
+def calculate_box(pdbqt_file, margin=3.0):
     """Calculate search box dimensions based on molecule size."""
     coords = read_pdbqt_coordinates(pdbqt_file)
     

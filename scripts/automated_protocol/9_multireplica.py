@@ -253,49 +253,53 @@ def update_temp_max(content: str, temp: int) -> str:
 
 def setup_replica(setup: ReplicaSetup, replica_num: int, content: str, 
                  temperature: Optional[int] = None) -> str:
-    """Set up an individual replica with its specific modifications."""
     if replica_num == 0:
         return content
     
-    # Modify STATE_RFILE
-    content = content.replace("STATE_RFILE=compressed.Kernels.data", 
-                            "STATE_RFILE=compressed_Kernels.data")
-    
-    # Add replica-specific OPES_METAD_EXPLORE sections
-    cv_mappings = {
-        1: ('L4', 'L4'),
-        2: ('V6', 'V6'),
-        3: ('L1', 'L1'),
-        4: ('V8', 'V8'),
-        5: ('V4', 'V4'),
-        6: ('V10', 'V10'),
-        7: ('V2', 'V2')
-    }
-    
-    if replica_num in cv_mappings:
-        cv, label = cv_mappings[replica_num]
-        content = insert_content(content, f"""OPES_METAD_EXPLORE ...
-   LABEL=opese{replica_num}
+    # Maintain a list of all previous modifications
+    modifications = []
+    for i in range(1, replica_num + 1):
+        cv_mappings = {
+            1: ('L4', 'L4'),
+            2: ('V6', 'V6'),
+            3: ('L1', 'L1'),
+            4: ('V8', 'V8'),
+            5: ('V4', 'V4'),
+            6: ('V10', 'V10'),
+            7: ('V2', 'V2')
+        }
+        
+        if i in cv_mappings:
+            cv, label = cv_mappings[i]
+            new_content = f"""OPES_METAD_EXPLORE ...
+   LABEL=opese{i}
    ARG={cv}
    SIGMA={setup.sigma_values[cv]:.3f}
-   FILE=Kernels{replica_num}.data
-   STATE_RFILE=compressed_Kernels{replica_num}.data
-   STATE_WFILE=compressed.Kernels{replica_num}.data
+   FILE=Kernels{i}.data
+   STATE_RFILE=compressed_Kernels{i}.data
+   STATE_WFILE=compressed.Kernels{i}.data
    PACE=20000
    BARRIER=3
-... OPES_METAD_EXPLORE""")
-        
-        # Update print line to include new bias
-        bias_list = [f"opese{i}.bias" for i in range(1, replica_num + 1)]
-        if replica_num >= 4:
-            bias_list.insert(0, "opesX.bias")
-        
-        base_args = "opes.bias,cyl.z,radius,funnelwall.bias,upper_wall.bias,lower_wall.bias"
-        if replica_num >= 3:
-            base_args += ",ene"
-        base_args += ",cosang,L1,L2,L3,L4,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11"
-        
-        content = update_print_line(content, f"{base_args},{','.join(bias_list)}")
+... OPES_METAD_EXPLORE"""
+            modifications.append(new_content)
+            
+            # Build bias list for PRINT line
+            bias_list = [f"opese{j}.bias" for j in range(1, i + 1)]
+            if i >= 4:
+                bias_list.insert(0, "opesX.bias")
+            
+            base_args = "opes.bias,cyl.z,radius,funnelwall.bias,upper_wall.bias,lower_wall.bias"
+            if i >= 3:
+                base_args += ",ene"
+            base_args += ",cosang,L1,L2,L3,L4,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11"
+            
+            content = update_print_line(content, f"{base_args},{','.join(bias_list)}")
+    
+    # Apply all modifications
+    content = content.replace("STATE_RFILE=compressed.Kernels.data", 
+                            "STATE_RFILE=compressed_Kernels.data")
+    for mod in modifications:
+        content = insert_content(content, mod)
     
     # Add temperature-dependent modifications
     if temperature and replica_num >= 4:
