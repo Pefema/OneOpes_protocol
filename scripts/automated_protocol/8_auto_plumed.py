@@ -24,7 +24,15 @@ def get_last_atom_number(filename):
     return last_number
 
 def update_atom_numbers(input_filename, output_filename, increment):
-    """Update atom numbers in PDB file by adding increment, excluding CONECT rows."""
+    """
+    Update atom numbers in PDB file by adding increment, excluding CONECT rows.
+    Also sets occupancy and temperature factors to 1.00.
+    
+    Args:
+        input_filename (str): Input PDB file path
+        output_filename (str): Output PDB file path
+        increment (int): Number to add to atom numbers
+    """
     with open(input_filename, 'r') as infile, open(output_filename, 'w') as outfile:
         for line in infile:
             # Skip CONECT lines completely
@@ -36,9 +44,16 @@ def update_atom_numbers(input_filename, output_filename, increment):
                 current_num = int(line[6:11].strip())
                 # Calculate new number
                 new_num = current_num + increment
-                # Create new line preserving exact spacing
-                updated_line = f"{line[:6]}{new_num:5d}{line[11:]}"
-                outfile.write(updated_line)
+                
+                # Reconstruct the line with updated values:
+                # First part: Keep original content up to column 54 (coordinates)
+                # Then add 1.00 for both occupancy and B-factor
+                new_line = (
+                    f"{line[:6]}{new_num:5d}{line[11:54]}"  # Original content up to coordinates
+                    f"  1.00  1.00"                         # New occupancy and B-factor
+                    f"{line[66:]}"                         # Rest of the line (chain ID, etc.)
+                )
+                outfile.write(new_line)
             else:
                 outfile.write(line)
 
