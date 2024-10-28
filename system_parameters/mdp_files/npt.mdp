@@ -30,7 +30,7 @@ pme_order               = 4         ; cubic interpolation
 fourierspacing          = 0.16      ; grid spacing for FFT
 ; Temperature coupling
 tcoupl                  = V-rescale                     ; modified Berendsen thermostat
-tc-grps                 = CB8_MOL Na+_Cl-_SOL               ; two coupling groups - more accurate
+tc-grps                 = CB8_MOL Na_Cl_SOL               ; two coupling groups - more accurate
 tau_t                   = 0.1   0.1                     ; time constant, in ps
 ref_t                   = 298   298                     ; reference temperature, one for each group, in K
 ; Pressure coupling
