@@ -309,13 +309,9 @@ def process_subfolders(base_folder, water_points):
                     "Failed to prepare for adding ions")
 
         print("Adding ions to neutralize the system...")
-        run_command("gmx_mpi genion -s ions.tpr -o solv_ions.gro -p topol.top -pname Na+ -nname Cl- -neutral -conc 0.25",
+        run_command("gmx_mpi genion -s ions.tpr -o solv_ions.gro -p topol.top -pname Na -nname Cl -neutral -conc 0.25",
                     "Failed to add ions",
                     inputs="5\n")
-
-        print("Correcting ion names...")
-        run_command("sed -i 's/ Na /Na+ /g' solv_ions.gro", "Failed to correct Na+ names")
-        run_command("sed -i 's/ Cl /Cl- /g' solv_ions.gro", "Failed to correct Cl- names")
 
         print("Running energy minimization...")
         run_command("gmx_mpi grompp -f em.mdp -c solv_ions.gro -p topol.top -o em.tpr -maxwarn 2",
