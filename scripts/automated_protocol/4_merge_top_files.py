@@ -169,9 +169,9 @@ def main():
         extract_sections(guest_file_path, os.path.join(output_dir, f"{guest_file.split('.')[0]}.itp"))
         
         # Create combined topol.top
-        merge_files(host_file_path, guest_file_path, os.path.join(output_dir, "topol.top"))
+        merge_files(host_file_path, guest_file_path, os.path.join(output_dir, "topol_without_water.top"))
         
-        print(f"Created {host_file.split('.')[0]}.itp, {guest_file.split('.')[0]}.itp, and topol.top in {output_dir}")
+        print(f"Created {host_file.split('.')[0]}.itp, {guest_file.split('.')[0]}.itp, and topol_without_water.top in {output_dir}")
         
         # Copy corresponding PDB files
         host_pdb = os.path.join(pdb_dir, f"{host_file.split('.')[0]}.pdb")

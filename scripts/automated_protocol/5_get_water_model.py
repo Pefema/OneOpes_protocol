@@ -124,11 +124,11 @@ def main():
 
     for root, dirs, files in os.walk(prep_dir):
         for file in files:
-            if file == 'topol.top':
+            if file == 'topol_without_water.top':
                 file_path = os.path.join(root, file)
                 process_topol_file(file_path, water_model_content, water_model, water_model_itp)
 
-    print(f"\nProcessing complete. Water model {water_model} has been added to all topol.top files")
+    print(f"\nProcessing complete. Water model {water_model} has been added to all topology files and saved as topology_water.top")
     print(f"and {water_model}.itp has been copied to all relevant directories in {input_folder}.")
 
 if __name__ == "__main__":
