@@ -10,6 +10,67 @@ from scipy.linalg import svd
 from itertools import combinations
 import re
 
+def align_molecule_to_z(pdb_file, output_file):
+    """
+    Align the molecule to the Z axis and center it at the origin.
+    
+    Parameters:
+        pdb_file (str): Path to input PDB file
+        output_file (str): Path to save aligned PDB file
+    
+    Returns:
+        str: Path to aligned PDB file
+    """
+    import MDAnalysis as mda
+    import numpy as np
+    
+    # Load the molecule
+    u = mda.Universe(pdb_file)
+    
+    # Calculate center of mass
+    com = u.atoms.center_of_mass()
+    
+    # Center the molecule at origin
+    u.atoms.translate(-com)
+    
+    # Calculate inertia tensor
+    masses = u.atoms.masses
+    coords = u.atoms.positions
+    inertia_tensor = np.zeros((3, 3))
+    for coord, mass in zip(coords, masses):
+        inertia_tensor += mass * np.outer(coord, coord)
+    
+    # Get principal axes through SVD
+    _, _, principal_axes = np.linalg.svd(inertia_tensor)
+    
+    # Create rotation matrix to align longest axis with Z
+    # Find the axis that's closest to the current z-axis
+    z_similarities = np.abs(principal_axes @ [0, 0, 1])
+    z_axis_idx = np.argmax(z_similarities)
+    
+    # If the selected axis points in the negative z direction, flip it
+    if principal_axes[z_axis_idx, 2] < 0:
+        principal_axes[z_axis_idx] *= -1
+    
+    # Get the other two axes indices
+    other_indices = [i for i in range(3) if i != z_axis_idx]
+    
+    # Construct rotation matrix
+    rotation_matrix = np.vstack([
+        principal_axes[other_indices[0]],
+        principal_axes[other_indices[1]],
+        principal_axes[z_axis_idx]
+    ])
+    
+    # Apply rotation to align with Z axis
+    u.atoms.rotate(rotation_matrix)
+    
+    # Save aligned structure
+    with mda.Writer(output_file) as writer:
+        writer.write(u)
+    
+    return output_file
+
 def get_last_atom_number(filename):
     """Get the highest HETATM number from a PDB file."""
     last_number = 0
@@ -470,12 +531,6 @@ def write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel, x_formu
         
         for i in range(1, len(virtual_atoms) + 1):
             f.write(f"V{i}: COORDINATION GROUPA=v{i} GROUPB=WO SWITCH={{RATIONAL D_0=0.0 R_0=0.25 NN=2 MM=6 D_MAX=0.8}} NLIST NL_CUTOFF=1.5 NL_STRIDE=20\n")
-        
-        for i in range(1, 5):
-            f.write(f"d{i}: MATHEVAL ARG=L{i} FUNC=(x/2.5)-1.0 PERIODIC=NO\n")
-        
-        for i in range(5, len(virtual_atoms) + 5):
-            f.write(f"d{i}: MATHEVAL ARG=V{i-4} FUNC=(x/2.8)-1.0 PERIODIC=NO\n")
 
         f.write("\n# --- (3) FUNNEL AND WALLS DEFINITION ---\n")
         if double_funnel:
@@ -520,10 +575,15 @@ def process_subfolder(subfolder_path, pdb_host, gro_pattern, double_funnel, othe
     os.chdir(subfolder_path)
     
     try:
-        # Process the files using original functionality
+        # Align the molecule first
+        aligned_pdb = "aligned_" + os.path.basename(pdb_file)
+        aligned_pdb_path = align_molecule_to_z(pdb_file, aligned_pdb)
+        print(f"Created aligned structure: {aligned_pdb}")
+        
+        # Process the aligned file using original functionality
         virtual_atoms, x_formula, y_formula, r_min, rmax, max_h = analyze_molecule(
-            pdb_file, double_funnel, other_side)
-        write_plumed_input(pdb_file, gro_file, virtual_atoms, double_funnel,
+            aligned_pdb_path, double_funnel, other_side)
+        write_plumed_input(aligned_pdb_path, gro_file, virtual_atoms, double_funnel,
                           x_formula, y_formula, r_min, rmax, max_h)
         
         # Additional renumbering functionality
@@ -533,7 +593,7 @@ def process_subfolder(subfolder_path, pdb_host, gro_pattern, double_funnel, othe
             print(f"\nGenerating template PDB file...")
             last_atom_number = get_last_atom_number(guest_pdb)
             template_pdb = "host_template.pdb"
-            update_atom_numbers(pdb_file, template_pdb, last_atom_number)
+            update_atom_numbers(aligned_pdb_path, template_pdb, last_atom_number)
             print(f"Created template PDB file: {template_pdb}")
         else:
             print(f"\nSkipping renumbering: Guest PDB file not found")
