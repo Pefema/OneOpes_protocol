@@ -1,4 +1,4 @@
-define                  = -POSRES     ; position restrain the protein and ligand
+define                  = -DPOSRES     ; position restrain the protein and ligand
 ; Run parameters
 integrator              = md          ; leap-frog integrator
 nsteps                  = 500000      ; 2 * 50000 = 1000 ps
